@@ -9,5 +9,6 @@
 # misc
 .DS_Store
 /api/.env
-/api2/.env
 /client/.env
+
+/package-lock.json
