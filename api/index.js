@@ -32,6 +32,8 @@ const corsOptions = {
     ],
     credentials : true,
 };
+app.use(cors(corsOptions));
+
 app.use(morgan('combined'));
 
 // app.use("/api/auth", authRoute);
