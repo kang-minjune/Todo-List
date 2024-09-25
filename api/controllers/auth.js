@@ -7,7 +7,7 @@ import bcrypt from 'bcryptjs';
 //로그인 기능 코드
 export const login = async (req, res, next) => {
     try{
-        const user = await User.findOne({ userid: req.body.email });
+        const user = await User.findOne({ email: req.body.email });
         if(!user){
             return res.status(404).json({ message: "User Not Found!" });
         }
