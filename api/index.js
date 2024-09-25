@@ -1,11 +1,11 @@
 import express from "express"
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
-// import authRoute from './routes/auth.js';
+import authRoute from './routes/auth.js';
 // import userRoute from './routes/user.js';
 // import checkRoute from './routes/check.js';
 // import nocheckRoute from './routes/nocheck.js';
@@ -36,7 +36,7 @@ app.use(cors(corsOptions));
 
 app.use(morgan('combined'));
 
-// app.use("/api/auth", authRoute);
+app.use("/api/auth", authRoute);
 // app.use("/api/user", userRoute);
 // app.use("/api/nocheck", nocheckRoute);
 // app.use("/api/check", checkRoute);
