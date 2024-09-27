@@ -9,8 +9,10 @@ import AuthInput from '../components/auth/AuthInput'
 import AuthCheckbox from '../components/auth/AuthCheckbox'
 
 import LoginHeader from '../components/header/authheader/LoginHeader';
+import Footer from '../components/footer/Footer';
 
 import '../styles/login.scss';
+
 
 /**
  * 로그인 페이지 
@@ -52,69 +54,68 @@ const Login = () => {
 
  
   return (
-    <div className='login-header-contents'>
-      <LoginHeader/>
-        <div className="login-form">
-          <div className="login-container">
-            {/* 로그인 메인 폼 */}
-            <div className="login-contents">
-              <div className="login-logo-box">
-                <NavLink to={'/'} className='login-home-logo'>
-                    <span className="login-youth"><img src='./QuickListLogo.png' width="110px" height="80px" /></span>
-                </NavLink>
-              </div>
+        <div className='login-header-contents'>
+          <LoginHeader/>
+              <div className="login-form">
+                <div className="login-container">
+                  {/* 로그인 메인 폼 */}
+                  <div className="login-contents">
+                    <div className="login-logo-box">
+                      <NavLink to={'/'} className='login-home-logo'>
+                          <span className="login-youth"><img src='./QuickListLogo.png' width="110px" height="80px" /></span>
+                      </NavLink>
+                    </div>
 
-              <div className="login-input-form">
-                <AuthInput
-                  formClassName="input-id-bar"
-                  imgSrc={"./icons/idlogo.png"}
-                  imgAlt="로그인 아이콘"
-                  inputType="text"
-                  inputClassName="login-id-input"
-                  inputPlaceHolder="아이디"
-                  id={"userId"}
-                  name="username"
-                  inputOnChange={loginHandleChange}
-                />
+                    <div className="login-input-form">
+                      <AuthInput
+                        formClassName="input-id-bar"
+                        imgSrc={"./icons/idlogo.png"}
+                        imgAlt="로그인 아이콘"
+                        inputType="text"
+                        inputClassName="login-id-input"
+                        inputPlaceHolder="아이디"
+                        id={"userId"}
+                        name="username"
+                        inputOnChange={loginHandleChange}
+                      />
 
 
-                <AuthInput
-                  formClassName="input-pw-bar"
-                  imgSrc={"./icons/pwlogo.png"}
-                  imgAlt="로그인 아이콘"
-                  inputType="password"
-                  inputClassName="login-pw-input"
-                  inputPlaceHolder="비밀번호"
-                  inputOnChange={loginHandleChange}
-                  id={"password"}
-                  name="password"
-                  authOnKeyDown={(e)=>(e.key === "Enter" ) ? loginClickHandler() : ""}
-                />
-              </div>
+                      <AuthInput
+                        formClassName="input-pw-bar"
+                        imgSrc={"./icons/pwlogo.png"}
+                        imgAlt="로그인 아이콘"
+                        inputType="password"
+                        inputClassName="login-pw-input"
+                        inputPlaceHolder="비밀번호"
+                        inputOnChange={loginHandleChange}
+                        id={"password"}
+                        name="password"
+                        authOnKeyDown={(e)=>(e.key === "Enter" ) ? loginClickHandler() : ""}
+                      />
+                    </div>
 
-              <div className="login-maintain-container">
-                <AuthCheckbox inputType="checkbox" checkBoxText="로그인 상태 유지" />
-              </div>
+                    <div className="login-maintain-container">
+                      <AuthCheckbox inputType="checkbox" checkBoxText="로그인 상태 유지" />
+                    </div>
 
-              <AuthBtn
-                btnClassName="login-btn"
-                btnText="로그인"
-                btnOnClick={loginClickHandler}
-              />
+                    <AuthBtn
+                      btnClassName="login-btn"
+                      btnText="로그인"
+                      btnOnClick={loginClickHandler}
+                    />
 
-              <div className="login-userfind-register">
+                    <div className="login-userfind-register">
 
-                <NavLink className={'find-id'} to={'/userfind'} >아이디 찾기</NavLink>
-                <NavLink className={'find-pw'} to={'/userfind'}>비밀번호 찾기</NavLink>
-                <NavLink className={'go-register'} to={'/register'}>회원가입</NavLink>
+                      <NavLink className={'find-id'} to={'/userfind'} >아이디 찾기</NavLink>
+                      <NavLink className={'find-pw'} to={'/userfind'}>비밀번호 찾기</NavLink>
+                      <NavLink className={'go-register'} to={'/register'}>회원가입</NavLink>
 
-              </div>
-
-            
-              </div>
+                    </div>     
+                  </div>
+                </div>
             </div>
-          </div>
-      </div>
+            <Footer/>
+        </div>
   );
 };
 

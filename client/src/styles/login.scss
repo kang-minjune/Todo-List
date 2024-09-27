@@ -2,23 +2,22 @@
 
 .login-header-contents{
     display: grid;
-    
+
     .login-form {
         background-color: white;
         display: flex;
         justify-content: center;
         padding-top: 68px;
     
-    
         .login-container {
-            height: 584px;
+            height: 570px;
         
     
             .login-contents {
                 background-color: white;
                 display: flex;
                 width: 400px;
-                height: 584px;
+                height: 570px;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
