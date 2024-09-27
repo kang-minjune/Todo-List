@@ -19,8 +19,8 @@ import '../styles/login.scss';
 
 const Login = () => {
 
-  const [Authlogin, setAuthlogin] = useState({
-     email: undefined,
+  const [credentials, setCredentials] = useState({
+     username: undefined,
      password: undefined,
   });
   
@@ -28,14 +28,17 @@ const Login = () => {
 
   const { loading, error, dispatch } = useContext(AuthContext);
 
-  const loginClickHandler = async (e) => {
+  const loginHandleChange = (e) => {
+    setCredentials((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const loginClickHandler = async () => {
     try {
       const apiUrl = process.env.REACT_APP_API_URL;
       console.log(`API URL: ${apiUrl}`)
-      const response = await axios.post(`${apiUrl}/auth/login`, Authlogin, { withCredentials: true });
+      const response = await axios.post(`${apiUrl}/auth/login`, credentials, { withCredentials: true });
       console.log(response.data);
-      console.log("안녕하세요.")
-      // dispatch({ type: "LOGIN", payload: response.data.user });
+      dispatch({ type: "LOGIN", payload: response.data.user });
       alert(response.data.message);
       navigate('/');
     } catch (err) {
@@ -47,9 +50,6 @@ const Login = () => {
     }
   };
 
-  const loginHandleChange = (e) => {
-    setAuthlogin((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-  };
  
   return (
     <div className='login-header-contents'>
@@ -73,6 +73,7 @@ const Login = () => {
                   inputClassName="login-id-input"
                   inputPlaceHolder="아이디"
                   id={"userId"}
+                  name="username"
                   inputOnChange={loginHandleChange}
                 />
 
@@ -86,6 +87,7 @@ const Login = () => {
                   inputPlaceHolder="비밀번호"
                   inputOnChange={loginHandleChange}
                   id={"password"}
+                  name="password"
                   authOnKeyDown={(e)=>(e.key === "Enter" ) ? loginClickHandler() : ""}
                 />
               </div>

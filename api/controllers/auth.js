@@ -2,12 +2,12 @@ import User from '../models/User.js';
 import jwt from 'jsonwebtoken';
 
 //암호 해시화 하는 라이브러리(회원가입에서 해시화를 진행 할 예정.)
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
 
 //로그인 기능 코드
 export const login = async (req, res, next) => {
     try{
-        const user = await User.findOne({ email: req.body.email });
+        const user = await User.findOne({ username: req.body.username });
         if(!user){
             return res.status(404).json({ message: "User Not Found!" });
         }
@@ -30,4 +30,16 @@ export const login = async (req, res, next) => {
     } catch (err) {
         next(err);
     }
+};
+
+//로그아웃 기능 코드
+export const logout = (req, res) => {
+    res.clearCookie("access_token", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        path: '/',
+        sameSite: 'strict', 
+    })
+    .status(200)
+    .json({message: "Logged out successfully"});
 };
