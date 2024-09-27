@@ -93,24 +93,28 @@ const Login = () => {
                         authOnKeyDown={(e)=>(e.key === "Enter" ) ? loginClickHandler() : ""}
                       />
                     </div>
+                   
+                    <div className='maintain-btn-nav'>
+                      <div className="login-maintain-container">
+                        <AuthCheckbox inputType="checkbox" checkBoxText="로그인 상태 유지" />
+                      </div>
 
-                    <div className="login-maintain-container">
-                      <AuthCheckbox inputType="checkbox" checkBoxText="로그인 상태 유지" />
-                    </div>
+                      <AuthBtn
+                        btnClassName="login-btn"
+                        btnText="로그인"
+                        btnOnClick={loginClickHandler}
+                      />
+                    
+                   
 
-                    <AuthBtn
-                      btnClassName="login-btn"
-                      btnText="로그인"
-                      btnOnClick={loginClickHandler}
-                    />
+                      <div className="login-userfind-register">
 
-                    <div className="login-userfind-register">
+                        <NavLink className={'find-id'} to={'/userfind'} >아이디 찾기</NavLink>
+                        <NavLink className={'find-pw'} to={'/userfind'}>비밀번호 찾기</NavLink>
+                        <NavLink className={'go-register'} to={'/register'}>회원가입</NavLink>
 
-                      <NavLink className={'find-id'} to={'/userfind'} >아이디 찾기</NavLink>
-                      <NavLink className={'find-pw'} to={'/userfind'}>비밀번호 찾기</NavLink>
-                      <NavLink className={'go-register'} to={'/register'}>회원가입</NavLink>
-
-                    </div>     
+                      </div>    
+                    </div> 
                   </div>
                 </div>
             </div>
