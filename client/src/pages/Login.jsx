@@ -39,7 +39,7 @@ const Login = () => {
       console.log(response.data);
       // dispatch({ type: "LOGIN", payload: response.data.user });
       alert("로그인에 성공하였습니다.");
-      navigate('/');
+      navigate('/home');
     } catch (err) {
       if (err.response && err.response.data && err.response.data.message) {
         alert(err.response.data.message);
