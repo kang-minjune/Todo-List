@@ -22,26 +22,23 @@ import '../styles/login.scss';
 const Login = () => {
 
   const [credentials, setCredentials] = useState({
-     username: undefined,
-     password: undefined,
+     username: '',
+     password: '',
   });
   
   const navigate = useNavigate();
 
   const { loading, error, dispatch } = useContext(AuthContext);
 
-  const loginHandleChange = (e) => {
-    setCredentials((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
   const loginClickHandler = async () => {
+    console.log(credentials);
     try {
       const apiUrl = process.env.REACT_APP_API_URL;
       console.log(`API URL: ${apiUrl}`)
       const response = await axios.post(`${apiUrl}/auth/login`, credentials, { withCredentials: true });
       console.log(response.data);
-      dispatch({ type: "LOGIN", payload: response.data.user });
-      alert(response.data.message);
+      // dispatch({ type: "LOGIN", payload: response.data.user });
+      alert("로그인에 성공하였습니다.");
       navigate('/');
     } catch (err) {
       if (err.response && err.response.data && err.response.data.message) {
@@ -50,6 +47,10 @@ const Login = () => {
         alert("로그인 정보 잘못되었습니다. 다시 시도해주세요.")
       }
     }
+  };
+
+  const loginHandleChange = (e) => {
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
  
@@ -74,9 +75,8 @@ const Login = () => {
                         inputType="text"
                         inputClassName="login-id-input"
                         inputPlaceHolder="아이디"
-                        id={"userId"}
-                        name="username"
                         inputOnChange={loginHandleChange}
+                        id={"username"}
                       />
 
 
@@ -89,7 +89,6 @@ const Login = () => {
                         inputPlaceHolder="비밀번호"
                         inputOnChange={loginHandleChange}
                         id={"password"}
-                        name="password"
                         authOnKeyDown={(e)=>(e.key === "Enter" ) ? loginClickHandler() : ""}
                       />
                     </div>

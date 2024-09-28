@@ -8,11 +8,11 @@ import jwt from 'jsonwebtoken';
 export const login = async (req, res, next) => {
     try{
         const user = await User.findOne({ username: req.body.username });
-        if(!user){
+        if(!user){          
             return res.status(404).json({ message: "User Not Found!" });
         }
-        
-        const isPasswordCorrect = req.body.password;
+
+        const isPasswordCorrect = req.body.password; 
         if(!isPasswordCorrect) {
             return res.status(400).json({ message: "Password is incorrect" });
         }
