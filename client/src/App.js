@@ -4,13 +4,17 @@ import './App.css';
 
 import Login from './pages/Login';
 import ListHome from './pages/ListHome';
+import Calendar from './pages/Calendar';
+import Mypage from './pages/Mypage';
 
 function App() {
   return (
     <BrowserRouter>
          <Routes>
-              <Route path='/' element={<Login />} />
-              <Route path='/home' element={<ListHome />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/list' element={<ListHome />} />
+              <Route path='/calendar' element={<Calendar />} />
+              <Route path='/mypage' element={<Mypage />} />
          </Routes>
     </BrowserRouter>
   );
