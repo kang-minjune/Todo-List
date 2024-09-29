@@ -1,3 +1,8 @@
 .list-page{
     display: grid;
+    
+    .container{
+        width: 0 auto;
+        display: grid;
+    }
 }

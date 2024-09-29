@@ -15,11 +15,10 @@
                 background-color: white;
                 display: flex;
                 width: 100%;
-                height: 750px;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
-                margin-top: 10%;
+                margin-top: 20%;
             }
     
             /* 로그인 Youth 로고 CSS */
@@ -178,28 +177,28 @@
     }
 }
 
-@media only screen and (min-width: 400px) and (max-width: 600px) {
+// @media only screen and (min-width: 400px) and (max-width: 600px) {
 
-    .login-header-contents{
-        .login-form {
-            .login-container{
-                .login-contents {
-                    height: 630px;
-                }
-            }
-        }
-    }
-}
+//     .login-header-contents{
+//         .login-form {
+//             .login-container{
+//                 .login-contents {
+//                     height: 630px;
+//                 }
+//             }
+//         }
+//     }
+// }
 
-@media only screen and (max-width: 400px) {
+// @media only screen and (max-width: 400px) {
 
-    .login-header-contents{
-        .login-form {
-            .login-container{
-                .login-contents {
-                    height: 530px;
-                }
-            }
-        }
-    }
-}
+//     .login-header-contents{
+//         .login-form {
+//             .login-container{
+//                 .login-contents {
+//                     height: 500px;
+//                 }
+//             }
+//         }
+//     }
+// }

@@ -9,6 +9,7 @@
         border-bottom: 1px solid #DDDDDD;
         background: #FFFFFF;
         margin: 0 auto;
+        width: 0 auto;
     
         img {
             font-family: "Noto Sans", sans-serif;
@@ -18,20 +19,8 @@
             font-weight: 400;
             line-height: normal;
             text-align: center;
-            width: 75px;
-            height: 53px;
+            width: 80px;
+            height: 58px;
         }
     }
 }
-
-// /* 미디어 쿼리 */
-// @media only screen and (max-width: 400px) {
-//     .login-header {
-//         height: 70px;
-//         width: 100%;
-        
-//         span {
-//             font-size: 20px; /* 작은 화면에 맞게 폰트 크기 조정 */
-//         }
-//     }
-// }
