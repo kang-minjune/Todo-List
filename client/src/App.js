@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
 
 import Login from './pages/Login';
-import ListHome from './pages/ListHome';
+import List from './pages/List';
 import Calendar from './pages/Calendar';
 import Mypage from './pages/Mypage';
 
@@ -12,7 +11,7 @@ function App() {
     <BrowserRouter>
          <Routes>
               <Route path='/login' element={<Login />} />
-              <Route path='/list' element={<ListHome />} />
+              <Route path='/list' element={<List />} />
               <Route path='/calendar' element={<Calendar />} />
               <Route path='/mypage' element={<Mypage />} />
          </Routes>

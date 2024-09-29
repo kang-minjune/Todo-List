@@ -1,23 +1,24 @@
-.footer-container{
-    width: 100%;
-    height: 70px;
-    border-top: 1px solid #DDDDDD;
-    background: #FFFFFF;
+.footer{
 
-    .buttons{
-        display: flex;
-        width: 400px;
-        height: 80px;
-        padding: 15px 13px;
-        justify-content: center;
-        align-items: center;
-        gap: 100px;
-        margin: 0 auto;
-
-        .button{
-            background-color: inherit;
-            border: none;
+    .container{
+        height: 70px;
+        border-top: 1px solid #DDDDDD;
+        background: #FFFFFF;
+    
+        .buttons{
+            display: flex;
+            width: 400px;
+            height: 80px;
+            padding: 15px 13px;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            margin: 0 auto;
+    
+            .button{
+                background-color: inherit;
+                border: none;
+            }
         }
     }
-
 }

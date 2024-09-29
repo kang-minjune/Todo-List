@@ -4,8 +4,11 @@ import '../header/header.scss'
 const Header = () => {
     return (
         <div className='header'>
-            <img src='../QuickListLogo.png' />
+            <div className='container'>
+                <img src='../QuickListLogo.png' />
+            </div>
         </div>
+        
     );
 };
 

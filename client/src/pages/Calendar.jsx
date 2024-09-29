@@ -2,11 +2,15 @@ import React from 'react';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 
+import '../styles/calendar.scss'
+
 const Calendar = () => {
     return (
-        <div>
+        <div className='calender-page'>
             <Header />
-            <p>달력 페이지</p>
+                <span>달력 페이지</span>
+                <span>달력 페이지</span>
+                <span>달력 페이지</span>
             <Footer />
         </div>
     );

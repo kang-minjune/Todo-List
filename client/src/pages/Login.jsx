@@ -55,7 +55,7 @@ const Login = () => {
 
  
   return (
-        <div className='login-header-contents'>
+        <div className='login-page'>
           <LoginHeader/>
               <div className="login-form">
                 <div className="login-container">

@@ -1,6 +1,6 @@
 /* 로그인 페이지 CSS */
 
-.login-header-contents{
+.login-page{
     display: grid;
     width: 100%;
 
@@ -177,13 +177,27 @@
       }
     }
 }
+
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+
+    .login-header-contents{
+        .login-form {
+            .login-container{
+                .login-contents {
+                    height: 630px;
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 400px) {
 
     .login-header-contents{
         .login-form {
             .login-container{
                 .login-contents {
-                    height: 500px;
+                    height: 530px;
                 }
             }
         }
