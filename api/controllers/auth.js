@@ -8,10 +8,8 @@ import bcrypt from 'bcryptjs';
 export const register = async (req, res, next) => {
     try{
 
-        const salt = await bcrypt.genSalt(10); 
-        
+        const salt = await bcrypt.genSalt(10);     
         const hashPassword = await bcrypt.hash(req.body.password, salt); 
-  
         const newUser = new User({
             ...req.body,
             password: hashPassword, 
@@ -19,10 +17,10 @@ export const register = async (req, res, next) => {
 
         console.log(req.body)
         await newUser.save();
-        console.log("안녕하세요")
         res.status(200).send("User has been created. Welcome!");
+        
     } catch (err) {
-        // console.log(err)
+        console.log(err)
         next(err);
     }
 }
@@ -31,14 +29,14 @@ export const register = async (req, res, next) => {
 //로그인 기능 코드
 export const login = async (req, res, next) => {
     try{
-        const user = await User.findOne({ username: req.body.username });
+        const user = await User.findOne({ userid: req.body.userid });
         if(!user){          
-            return res.status(404).json({ message: "User Not Found!" });
+            return res.status(404).json({ message: "유저를 찾지 못했습니다." });
         }
 
         const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
         if(!isPasswordCorrect) {
-            return res.status(400).json({ message: "Password is incorrect" });
+            return res.status(400).json({ message: "패스워드가 올바르지 않습니다." });
         }
 
         const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.JWT);

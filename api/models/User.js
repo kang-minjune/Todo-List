@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema(
                 required: true,
                 unique: true,
             },
-            realname: {
+            username: {
                 type: String,
                 required: true,
             },
