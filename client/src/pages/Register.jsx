@@ -13,7 +13,7 @@ const Register = () => {
         userid: '',
         password: '',
         email: '',
-        username: '',
+        realname: '',
         phone: '',
         gender: '',
         address: '',
@@ -67,7 +67,7 @@ const Register = () => {
                 <input id='userid' type='text' onChange={registerHandleChange} />
 
                 <label>이름</label>
-                <input id='username' type='text' onChange={registerHandleChange} />
+                <input id='realname' type='text' onChange={registerHandleChange} />
 
                 <label>패스워드</label>
 

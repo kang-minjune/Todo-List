@@ -7,7 +7,6 @@ import bcrypt from 'bcryptjs';
 //회원가입 기능 코드
 export const register = async (req, res, next) => {
     try{
-
         const salt = await bcrypt.genSalt(10);     
         const hashPassword = await bcrypt.hash(req.body.password, salt); 
         const newUser = new User({
