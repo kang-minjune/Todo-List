@@ -1,8 +1,32 @@
 import User from '../models/User.js';
 import jwt from 'jsonwebtoken';
 
-//암호 해시화 하는 라이브러리(회원가입에서 해시화를 진행 할 예정.)
-// import bcrypt from 'bcryptjs';
+//암호 해시화 하는 라이브러리
+import bcrypt from 'bcryptjs';
+
+//회원가입 기능 코드
+export const register = async (req, res, next) => {
+    try{
+
+        const salt = await bcrypt.genSalt(10); 
+        
+        const hashPassword = await bcrypt.hash(req.body.password, salt); 
+  
+        const newUser = new User({
+            ...req.body,
+            password: hashPassword, 
+        });
+
+        console.log(req.body)
+        await newUser.save();
+        console.log("안녕하세요")
+        res.status(200).send("User has been created. Welcome!");
+    } catch (err) {
+        // console.log(err)
+        next(err);
+    }
+}
+
 
 //로그인 기능 코드
 export const login = async (req, res, next) => {
@@ -12,7 +36,7 @@ export const login = async (req, res, next) => {
             return res.status(404).json({ message: "User Not Found!" });
         }
 
-        const isPasswordCorrect = req.body.password; 
+        const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
         if(!isPasswordCorrect) {
             return res.status(400).json({ message: "Password is incorrect" });
         }
