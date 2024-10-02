@@ -7,8 +7,9 @@ import bcrypt from 'bcryptjs';
 //회원가입 기능 코드
 export const register = async (req, res, next) => {
     try{
-        const salt = await bcrypt.genSalt(10);     
-        const hashPassword = await bcrypt.hash(req.body.password, salt); 
+        const salt = await bcrypt.genSalt(10);    
+        const hashPassword = await bcrypt.hash(req.body.password, salt);  
+        
         const newUser = new User({
             ...req.body,
             password: hashPassword, 
@@ -28,7 +29,7 @@ export const register = async (req, res, next) => {
 //로그인 기능 코드
 export const login = async (req, res, next) => {
     try{
-        const user = await User.findOne({ userid: req.body.userid });
+        const user = await User.findOne({ username: req.body.username });
         if(!user){          
             return res.status(404).json({ message: "유저를 찾지 못했습니다." });
         }

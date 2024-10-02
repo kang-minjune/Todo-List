@@ -22,7 +22,7 @@ import '../styles/login.scss';
 const Login = () => {
 
   const [credentials, setCredentials] = useState({
-     userid: '',
+     username: '',
      password: '',
   });
   
@@ -76,7 +76,7 @@ const Login = () => {
                         inputClassName="login-id-input"
                         inputPlaceHolder="아이디"
                         inputOnChange={loginHandleChange}
-                        id={"userid"}
+                        id={"username"}
                       />
 
 

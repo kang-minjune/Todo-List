@@ -10,7 +10,7 @@ const Register = () => {
     const navigate = useNavigate(); // 수정된 부분
 
     const [credentials, setCredentials] = useState({
-        userid: '',
+        username: '',
         password: '',
         email: '',
         realname: '',
@@ -36,10 +36,10 @@ const Register = () => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log(apiUrl);
-
+             console.log("ㅎㅇ")
             const response = await axios.post(`${apiUrl}/auth/register`, credentials);
             console.log(response.data);
-
+            
             if (response.data) {
                 alert("회원가입에 성공하셨습니다! 로그인창으로 이동합니다.");
                 navigate('/');
@@ -64,7 +64,7 @@ const Register = () => {
 
             <div className='container'>
                 <label>아이디</label>
-                <input id='userid' type='text' onChange={registerHandleChange} />
+                <input id='username' type='text' onChange={registerHandleChange} />
 
                 <label>이름</label>
                 <input id='realname' type='text' onChange={registerHandleChange} />

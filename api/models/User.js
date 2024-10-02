@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema(
         {
-            userid:{
+            username:{
                 type: String, 
                 required: true,
                 unique: true,
@@ -19,6 +19,7 @@ const UserSchema = new mongoose.Schema(
             realname: {
                 type: String,
                 required: true,
+                
             },
             gender: {
                 type: String,
