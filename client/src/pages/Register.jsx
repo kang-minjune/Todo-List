@@ -36,7 +36,6 @@ const Register = () => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log(apiUrl);
-             console.log("ㅎㅇ")
             const response = await axios.post(`${apiUrl}/auth/register`, credentials);
             console.log(response.data);
             
