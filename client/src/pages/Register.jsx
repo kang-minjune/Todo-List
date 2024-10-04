@@ -84,10 +84,10 @@ const Register = () => {
 
             <div className='container'>
                 <label>아이디</label>
-                <input id='username' type='text' onChange={registerHandleChange} />
+                <input id='username' type='text' onChange={registerHandleChange} placeholder='사용할 아이디를 작성해주세요.' />
 
                 <label>이름</label>
-                <input id='realname' type='text' onChange={registerHandleChange} />
+                <input id='realname' type='text' onChange={registerHandleChange} placeholder='이름을 작성해주세요.' />
 
 
                 <label>패스워드</label>
@@ -96,6 +96,7 @@ const Register = () => {
                         id='password'
                         type={showPassword ? 'password' : 'text'}
                         onChange={registerHandleChange}
+                        placeholder='패스워드를 작성해주세요.'
                     />
 
                     <button onClick={showPasswordHandler} className='eyebtn'>
@@ -110,7 +111,11 @@ const Register = () => {
 
                 <label>패스워드 확인</label>
                 <div className='password-div'>
-                    <input id='passwordconfirm' type={showPasswordConfirm ? 'password' : 'text'} onChange={registerHandleChange} />
+                    <input 
+                           id='passwordconfirm' 
+                           type={showPasswordConfirm ? 'password' : 'text'} 
+                           onChange={registerHandleChange} 
+                           placeholder='패스워드를 동일하게 작성해주세요.' />
 
                     <button onClick={showPasswordConfirmHandler} className='eyebtn'>
                             {showPasswordConfirm ? (
@@ -125,13 +130,13 @@ const Register = () => {
                 <div className='button'>
                     <span>성별</span>
                     <button
-                        className={`man ${credentials.gender === "남성" ? "selected" : ""}`} // 선택 상태 표시
+                        className={`man ${credentials.gender === "남성" ? "selected" : ""}`}
                         onClick={() => handleGenderClick("남성")}
                     >
                         남성
                     </button>
                     <button
-                        className={`woman ${credentials.gender === "여성" ? "selected" : ""}`} // 선택 상태 표시
+                        className={`woman ${credentials.gender === "여성" ? "selected" : ""}`}
                         onClick={() => handleGenderClick("여성")}
                     >
                         여성
@@ -139,19 +144,19 @@ const Register = () => {
                 </div>
 
                 <label>E-Mail</label>
-                <input id='email' type='email' onChange={registerHandleChange} />
+                <input id='email' type='email' onChange={registerHandleChange} placeholder='이메일을 작성해주세요.' />
 
                 <label>전화번호</label>
-                <input id='phone' type='tel' onChange={registerHandleChange} />
+                <input id='phone' type='tel' onChange={registerHandleChange} placeholder=' -를 포함하고 작성해주세요' />
                 
                 <label>주소</label>
 
-                <input id='address' type='text' value={credentials.address} onChange={registerHandleChange} />
+                <input id='address' type='text' value={credentials.address} onChange={registerHandleChange} placeholder='도로명 주소를 작성해주세요.' />
                 <AddressSearchBtn onAddressSelect={handleAddressSelect} />
 
                 
                 <label>상세주소</label>
-                <input id='addressdetail' type='text' onChange={registerHandleChange} />
+                <input id='addressdetail' type='text' onChange={registerHandleChange} placeholder='상세 주소를 작성해주세요.' />
 
                 <button className='register-button' onClick={registerBtnClickHandler}>
                     가입하기
