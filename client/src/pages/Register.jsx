@@ -20,6 +20,7 @@ const Register = () => {
         gender: '',
         address: '',
         addressdetail: '',
+        passwordconfirm: '',
     });
 
     const [showPassword, setShowPassword] = useState(true);
@@ -34,16 +35,25 @@ const Register = () => {
 
     const registerBtnClickHandler = async (e) => {
         e.preventDefault();
+
+        if (credentials.password !== credentials.passwordconfirm) {
+                        alert("비밀번호가 일치하지 않습니다.");
+                        return; // 비밀번호가 일치하지 않으면 이후 처리 중단
+        }
+
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log(apiUrl);
             const response = await axios.post(`${apiUrl}/auth/register`, credentials);
-            console.log(response.data);
+            console.log(response.data); 
+            
+            
             
             if (response.data) {
                 alert("회원가입에 성공하셨습니다! 로그인창으로 이동합니다.");
                 navigate('/');
             }
+
         } catch (err) {
             console.error(err.response.data);
             alert("회원정보를 입력해주세요.");
@@ -65,6 +75,7 @@ const Register = () => {
     const LoginNav = () =>{
         navigate('/')
     }
+
 
 
     return (
@@ -99,7 +110,7 @@ const Register = () => {
 
                 <label>패스워드 확인</label>
                 <div className='password-div'>
-                    <input type={showPasswordConfirm ? 'password' : 'text'} />
+                    <input id='passwordconfirm' type={showPasswordConfirm ? 'password' : 'text'} onChange={registerHandleChange} />
 
                     <button onClick={showPasswordConfirmHandler} className='eyebtn'>
                             {showPasswordConfirm ? (
