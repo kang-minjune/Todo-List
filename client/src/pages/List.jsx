@@ -8,11 +8,11 @@ const List = () => {
     return (
         <div className='list-page'>   
           <div className='container'>
-            <Header />
+             <Header />
                     <span>리스트 페이지</span>
                     <span>리스트 페이지</span>
                     <span>리스트 페이지</span>
-                <Footer/>
+              <Footer/>
           </div>
                 
         </div>

@@ -68,8 +68,8 @@ const Register = () => {
                 <label>이름</label>
                 <input id='realname' type='text' onChange={registerHandleChange} />
 
-                <label>패스워드</label>
 
+                <label>패스워드</label>
                 <div className='password-div'>
                      <input
                         id='password'
@@ -122,10 +122,12 @@ const Register = () => {
 
                 <label>전화번호</label>
                 <input id='phone' type='tel' onChange={registerHandleChange} />
-
+                
                 <label>주소</label>
                 <input id='address' type='text' onChange={registerHandleChange} />
+                <button className='find-address'>주소검색</button>
 
+                
                 <label>상세주소</label>
                 <input id='addressdetail' type='text' onChange={registerHandleChange} />
 
@@ -133,8 +135,9 @@ const Register = () => {
                     가입하기
                 </button>
             </div>
-
+            
             <Footer />
+
         </div>
     );
 };
