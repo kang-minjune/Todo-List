@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer';
+import RegisterFooter from '../components/footer/authfooter/RegisterFooter';
 import { useNavigate } from 'react-router-dom';
 
 import '../styles/register.scss'
@@ -134,9 +134,13 @@ const Register = () => {
                 <button className='register-button' onClick={registerBtnClickHandler}>
                     가입하기
                 </button>
+
+                <button className='login-nav'>
+                    로그인 이동
+                </button>
             </div>
             
-            <Footer />
+            <RegisterFooter />
 
         </div>
     );
