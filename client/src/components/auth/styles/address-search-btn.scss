@@ -1,0 +1,26 @@
+.address-search-btn{
+    background-color: #224B5E;
+    margin-top: 2%;
+    height: 25px;
+    font-size: 14px;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 5px;
+    width: 100%;
+
+    &:hover{
+      background-color: #89CFF0;
+      color: #224B5E;
+    }
+
+   
+
+    
+}
+
+.close{
+    background: none;
+    border: none;
+    margin-top: 10px;
+    float:right;
+}

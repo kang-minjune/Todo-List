@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import Header from '../components/header/Header';
 import RegisterFooter from '../components/footer/authfooter/RegisterFooter';
+import AddressSearchBtn from '../components/auth/AddressSearchBtn';
 import { useNavigate } from 'react-router-dom';
+
 
 import '../styles/register.scss'
 import axios from 'axios';
 
 const Register = () => {
-    const navigate = useNavigate(); // 수정된 부분
+    const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({
         username: '',
@@ -21,7 +23,6 @@ const Register = () => {
     });
 
     const [showPassword, setShowPassword] = useState(true);
-
     const [showPasswordConfirm, setShowPasswordConfirm] = useState(true);
 
     const showPasswordHandler = () => {
@@ -56,6 +57,13 @@ const Register = () => {
     const registerHandleChange = (e) => {
         setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
     };
+
+    const handleAddressSelect = (selectedAddress) => {
+        setCredentials({...credentials, address: selectedAddress});
+    };
+
+    
+
 
     return (
         <div className='register-page'>
@@ -124,8 +132,9 @@ const Register = () => {
                 <input id='phone' type='tel' onChange={registerHandleChange} />
                 
                 <label>주소</label>
-                <input id='address' type='text' onChange={registerHandleChange} />
-                <button className='find-address'>주소검색</button>
+
+                <input id='address' type='text' value={credentials.address} onChange={registerHandleChange} />
+                <AddressSearchBtn onAddressSelect={handleAddressSelect} />
 
                 
                 <label>상세주소</label>
