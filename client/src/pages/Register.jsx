@@ -62,7 +62,9 @@ const Register = () => {
         setCredentials({...credentials, address: selectedAddress});
     };
 
-    
+    const LoginNav = () =>{
+        navigate('/')
+    }
 
 
     return (
@@ -144,7 +146,7 @@ const Register = () => {
                     가입하기
                 </button>
 
-                <button className='login-nav'>
+                <button className='login-nav' onClick={LoginNav}>
                     로그인 이동
                 </button>
             </div>
