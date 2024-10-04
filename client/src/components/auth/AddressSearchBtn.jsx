@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
-
+import Modal from 'react-modal';
 import './styles/address-search-btn.scss'
 
 const AddressSearchBtn = ({ onAddressSelect }) => {
@@ -24,21 +24,27 @@ const AddressSearchBtn = ({ onAddressSelect }) => {
   };
 
   return (
-    <div>
-      <button className="address-search-btn" onClick={handleOpen}>주소찾기</button>
-      {open && (
-        <>
-          <div className="modal-overlay" onClick={handleClose}></div>
-          <div className="modal">
-            <div className="modal-content">
-              <button className="close" onClick={handleClose}>
-                 닫기
-              </button>
-              <DaumPostcode onComplete={handleComplete} />
-            </div>
-          </div>
-        </>
-      )}
+    <div className='address-search'>
+      <button className="address-search-btn" onClick={handleOpen}>
+        주소검색
+      </button>
+    
+        {open && (
+          <>
+            <Modal isOpen={true} >
+              <div className="modal-overlay" onClick={handleClose}></div>
+              <div className="modal">
+                <div className="modal-content">
+                  <button className="close" onClick={handleClose}>
+                    닫기
+                  </button>
+                  <DaumPostcode onComplete={handleComplete} />
+                </div>
+              </div>
+           </Modal>
+          </>
+        )}  
+     
     </div>
   );
 };
