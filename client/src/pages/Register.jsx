@@ -147,7 +147,7 @@ const Register = () => {
                 <input id='email' type='email' onChange={registerHandleChange} placeholder='이메일을 작성해주세요.' />
 
                 <label>전화번호</label>
-                <input id='phone' type='tel' onChange={registerHandleChange} placeholder=' -를 포함하고 작성해주세요' />
+                <input id='phone' type='tel' onChange={registerHandleChange} placeholder=' 하이픈(-)을 포함해주세요' />
                 
                 <label>주소</label>
 
