@@ -56,6 +56,11 @@
               border: none;
               border-radius: 5px;
               font-size: 14px;
+
+              &:hover{
+                background-color: #89CFF0;
+                color: #224B5E;
+              }
           }
 
           .woman{
@@ -66,12 +71,13 @@
               border: none;
               border-radius: 5px;
               font-size: 14px;
+
+              &:hover{
+                background-color: #89CFF0;
+                color: #224B5E;
+              }
           }
 
-          &:hover{
-              background-color: #89CFF0;
-              color: #224B5E;
-          }
       }
 
       .register-button{
