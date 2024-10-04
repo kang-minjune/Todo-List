@@ -6,12 +6,20 @@
         display: grid;
         margin: 0 auto;
   
-              label{
-                margin-top: 6%;
-                font-size: 16px;
-              }
+            label{
+              margin-top: 5%;
+              font-size: 16px;
+            }
 
-              input{
+            .user-id{
+              margin-top: 10%;
+            }
+
+            .address-detail {
+                margin-top: 2%;
+            }
+
+            input{
                 width: 400px;
                 height: 30px;
                 border:none;
@@ -20,20 +28,20 @@
                 &:focus{
                     outline: none;
                 }
-              }
+            }
 
-              .password-div{
+            .password-div{
                 position: relative;
                 width: 100%;
 
                 .button{
                   position: absolute;
                 }
-              }
-              .button{
-                margin: 0 auto;
-                margin-top: 5%;
-                width: 100%;
+            }
+            .button{
+              margin: 0 auto;
+              margin-top: 5%;
+              width: 100%;
 
                 .man{                
                     width: 100%;
@@ -97,6 +105,5 @@
                         color: #224B5E;
                       }
            }
-        
     }
 }

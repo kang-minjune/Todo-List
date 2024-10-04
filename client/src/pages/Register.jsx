@@ -83,7 +83,7 @@ const Register = () => {
             <Header />
 
             <div className='container'>
-                <label>아이디</label>
+                <label className='user-id'>아이디</label>
                 <input id='username' type='text' onChange={registerHandleChange} placeholder='사용할 아이디를 작성해주세요.' />
 
                 <label>이름</label>
@@ -155,7 +155,7 @@ const Register = () => {
                 <AddressSearchBtn onAddressSelect={handleAddressSelect} />
 
                 
-                <label>상세주소</label>
+                <label className='address-detail'>상세주소</label>
                 <input id='addressdetail' type='text' onChange={registerHandleChange} placeholder='상세 주소를 작성해주세요.' />
 
                 <button className='register-button' onClick={registerBtnClickHandler}>
