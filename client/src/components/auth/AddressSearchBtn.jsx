@@ -24,7 +24,7 @@ const AddressSearchBtn = ({ onAddressSelect }) => {
   };
 
   return (
-    <div className='address-search'>
+    <div>
       <button className="address-search-btn" onClick={handleOpen}>
         주소검색
       </button>
