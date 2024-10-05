@@ -62,6 +62,11 @@ const Register = () => {
 
     const handleGenderClick = (gender) => {
         setCredentials((prev) => ({ ...prev, gender }));
+        if(gender == "남성") {
+            console.log("남성 선택됨");
+        } else if(gender == "여성"){
+            console.log("여성 선택됨");
+        }
     };
 
     const registerHandleChange = (e) => {
@@ -134,12 +139,20 @@ const Register = () => {
                             <button
                                 className={`man ${credentials.gender === "남성" ? "selected" : ""}`}
                                 onClick={() => handleGenderClick("남성")}
+                                style={{
+                                    backgroundColor: credentials.gender === "남성" ? "#89CFF0" : "#224B5E",
+                                    color: credentials.gender === "남성" ? "#224B5E" : "#FFFFFF",
+                                }}
                             >
                                 남성
                             </button>
                             <button
                                 className={`woman ${credentials.gender === "여성" ? "selected" : ""}`}
                                 onClick={() => handleGenderClick("여성")}
+                                style={{
+                                    backgroundColor: credentials.gender === "여성" ? "#89CFF0" : "#224B5E",
+                                    color: credentials.gender === "여성" ? "#224B5E" : "#FFFFFF",
+                                }}
                             >
                                 여성
                             </button>
