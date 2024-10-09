@@ -8,7 +8,7 @@ import axios from 'axios';
 import '../styles/register.scss'
 
 
-const Register = () => {
+const Register = (type) => {
     const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({
@@ -25,6 +25,7 @@ const Register = () => {
 
     const [showPassword, setShowPassword] = useState(true);
     const [showPasswordConfirm, setShowPasswordConfirm] = useState(true);
+    const [showRadioButton, setShowRadioButton] = useState(true);
 
     const showPasswordHandler = () => {
         setShowPassword(!showPassword);
@@ -38,7 +39,7 @@ const Register = () => {
 
         if (credentials.password !== credentials.passwordconfirm) {
                         alert("비밀번호가 일치하지 않습니다.");
-                        return; // 비밀번호가 일치하지 않으면 이후 처리 중단
+                        return;
         }
 
         try {
@@ -75,6 +76,10 @@ const Register = () => {
 
     const handleAddressSelect = (selectedAddress) => {
         setCredentials({...credentials, address: selectedAddress});
+    };
+
+    const showGenderRadioHandler = () => {
+        setShowRadioButton(!showRadioButton);
     };
 
     const LoginNav = () =>{
@@ -133,30 +138,32 @@ const Register = () => {
                             </button>
                         </div>
                         
+                        <span>성별</span>
+                        <div className='gender-custom-btn'>
+                            <div className='radio-div'>
+                                <span>남성</span>
+                                <img 
+                                    className={`man ${credentials.gender === "남성" ? "selected" : ""}`} 
+                                    src={credentials.gender === "남성" ? "./icons/radiobutton/gender-on.png" : "./icons/radiobutton/gender-off.png"} 
+                                    alt="남성" 
+                                    onClick={() => handleGenderClick("남성")} 
+                                />
+                            </div>
+                            
+                            <div className='radio-div'>
+                                <span>여성</span>
+                                <img 
+                                    className={`woman ${credentials.gender === "여성" ? "selected" : ""}`} 
+                                    src={credentials.gender === "여성" ?  "./icons/radiobutton/gender-on.png" : "./icons/radiobutton/gender-off.png"} 
+                                    alt="여성" 
+                                    onClick={() => handleGenderClick("여성")} 
+                                />
+                            </div>
+                            
 
-                        <div className='button'>
-                            <span>성별</span>
-                            <button
-                                className={`man ${credentials.gender === "남성" ? "selected" : ""}`}
-                                onClick={() => handleGenderClick("남성")}
-                                style={{
-                                    backgroundColor: credentials.gender === "남성" ? "#89CFF0" : "#224B5E",
-                                    color: credentials.gender === "남성" ? "#224B5E" : "#FFFFFF",
-                                }}
-                            >
-                                남성
-                            </button>
-                            <button
-                                className={`woman ${credentials.gender === "여성" ? "selected" : ""}`}
-                                onClick={() => handleGenderClick("여성")}
-                                style={{
-                                    backgroundColor: credentials.gender === "여성" ? "#89CFF0" : "#224B5E",
-                                    color: credentials.gender === "여성" ? "#224B5E" : "#FFFFFF",
-                                }}
-                            >
-                                여성
-                            </button>
                         </div>
+
+                        
 
                         <label>E-Mail</label>
                         <input id='email' type='email' onChange={registerHandleChange} placeholder='이메일을 작성해주세요.' />

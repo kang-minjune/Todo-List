@@ -6,9 +6,9 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
 import authRoute from './routes/auth.js';
+// import listRoute from './routes/list.js';
 // import userRoute from './routes/user.js';
-// import checkRoute from './routes/check.js';
-// import nocheckRoute from './routes/nocheck.js';
+
 
 const app = express();
 dotenv.config();
@@ -37,9 +37,10 @@ app.use(cors(corsOptions));
 app.use(morgan('combined'));
 
 app.use("/api/auth", authRoute);
+// app.use("/api/list", listRoute);
 // app.use("/api/user", userRoute);
-// app.use("/api/nocheck", nocheckRoute);
-// app.use("/api/check", checkRoute);
+
+
 
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500;
