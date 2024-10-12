@@ -19,6 +19,9 @@
   font-family: "Noto Sans", sans-serif;
 */
 
+html, body {
+  height: 100%; /* 전체 화면의 높이를 100%로 설정 */
+}
 
 body {
   margin: 0;

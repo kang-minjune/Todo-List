@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
 import authRoute from './routes/auth.js';
-// import listRoute from './routes/list.js';
+import listRoute from './routes/list.js'
 // import userRoute from './routes/user.js';
 
 
@@ -37,7 +37,7 @@ app.use(cors(corsOptions));
 app.use(morgan('combined'));
 
 app.use("/api/auth", authRoute);
-// app.use("/api/list", listRoute);
+app.use("/api/list", listRoute);
 // app.use("/api/user", userRoute);
 
 

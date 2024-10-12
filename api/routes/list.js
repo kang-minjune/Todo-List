@@ -1,9 +1,17 @@
 import express from 'express';
-import { listAdd, listUpdate, listGet, listDelete } from '../controllers/list';
+import { 
+    listAdd,
+    listGet,
+    listGetAll,
+    listUpdate,  
+    listDelete } from '../controllers/list.js'
 
 const router = express.Router();
 
-router.post('/list-add', listAdd);
-router.post('/list-update', listUpdate);
-router.post('/list-get', listGet);
-router.post('/list-delete', listDelete);
+router.post('/create', listAdd);
+router.get('/read/:id', listGet);
+router.get('/allread', listGetAll);
+router.put('/update/:id', listUpdate);
+router.delete('/delete/:id', listDelete);
+
+export default router;

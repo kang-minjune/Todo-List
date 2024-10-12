@@ -2,18 +2,20 @@ import React from 'react';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 
+import Calendar from 'react-calendar';
+
 import '../styles/calendar.scss'
 
-const Calendar = () => {
+const CalendarPage = () => {
     return (
         <div className='calender-page'>
             <Header />
-                <span>달력 페이지</span>
-                <span>달력 페이지</span>
-                <span>달력 페이지</span>
+            <div className='calender-container'>
+                <Calendar />
+            </div>
             <Footer />
         </div>
     );
 };
 
-export default Calendar;
+export default CalendarPage;

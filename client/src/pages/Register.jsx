@@ -137,8 +137,7 @@ const Register = (type) => {
                                     )}
                             </button>
                         </div>
-                        
-                        <span>성별</span>
+
                         <div className='gender-custom-btn'>
                             <div className='radio-div'>
                                 <span>남성</span>
