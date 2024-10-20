@@ -1,10 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../footer/footer.scss';
 
 const Footer = () => {
     const location = useLocation();
     const navigate = useNavigate();
+
+    const { user }  = useContext(AuthContext);
+
+    const [userData, setUserData] = useState({
+            username: ''
+      }
+    )
+
+    useEffect(() => {
+        if(user){
+            setUserData({
+                username: user.username,
+            });
+        }
+    }, [user]);
+
+    const {username} = userData || {};
 
     const clickedButtonState = () => {
         switch (location.pathname) {
@@ -23,8 +41,10 @@ const Footer = () => {
 
     const handleButtonClick = (buttonClassName, path) => {
         setClickedButton(buttonClassName);
-        navigate(path);  // Navigate immediately
+        navigate(path); 
     };
+
+
 
     return (
         <div className='footer'>

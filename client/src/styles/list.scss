@@ -1,8 +1,22 @@
-.list-page{
-    display: grid;
-    
-    .container{
-        width: 0 auto;
+.list{
+    width: 100%;
+    .list-page{
         display: grid;
+    
+        .container{
+            border: none;
+            display: grid;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 10px;
+            gap: 5px;
+        }
+
     }
+    .list-add-btn{
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+
 }

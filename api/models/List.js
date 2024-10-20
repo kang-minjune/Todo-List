@@ -7,13 +7,17 @@ const ListSchema = new mongoose.Schema(
         //     required: true,
         //     unique: true,
         // },
-        listitem :{
+        listitem : {
             type: String, 
             required: true,
         },
         memo : {
             type: String, 
             required: true,
+        },
+        check : {
+            type: Boolean,
+            default: false,
         }
     },
     { timestamps: true }
