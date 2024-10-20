@@ -6,7 +6,9 @@
 
     span{
         width: 100%;
-        border: 1px solid black;
+        border: none;
+        font-size: 15px;
+        border-bottom: 0.75px solid black ;
     }
 
     .check-button{
@@ -56,11 +58,35 @@
     
 }
 
-.item-edit-span{
-        width: 100%;
-        margin-bottom: 10px;
+.item-edit-input {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+        &:hover { 
+            border: 2px solid #224B5E;  
+            border-radius: 5px;
+        }
+        
+        &:focus { 
+            border: 2px solid #224B5E;  
+            border-radius: 5px;
+            outline: none;  
+        }
 }
-.memo-edit-span{
+
+.memo-edit-input{
         width: 100%;
         height: 300px;
+        border-radius: 5px;
+            &:hover { 
+                border: 2px solid #224B5E;  
+                border-radius: 5px;
+            }
+            
+            &:focus { 
+                border: 2px solid #224B5E;  
+                border-radius: 5px;
+                outline: none;  
+            }
 }
