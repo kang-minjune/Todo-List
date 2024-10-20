@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useContext, Modal } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import Listitem from '../components/list/Listitem';
+import ListAddBtn from '../components/list/ListAddBtn';
 
 import { AuthContext } from '../context/AuthContext';
 
@@ -15,7 +16,6 @@ const List = () => {
     const { user } = useContext(AuthContext);
 
     const [ listData, setListData ] = useState([])
-    const [addListModal, setAddListModal] = useState(false);
 
     const [userData, setUserData] = useState({
         username:'',
@@ -45,10 +45,17 @@ const List = () => {
             console.error('API URL is not defined');
          }
     }, [apiUrl]);
-     
-    const handleClose = () => {
-        setAddListModal(false);
-    };
+
+    //리스트 삭제하는 코드
+    const listDelete = async (list) => {
+          try{
+            await axios.delete(`${apiUrl}/list/delete/${list._id}`);
+            setListData((prevState) => prevState.filter((item) => item._id !== list._id));
+
+          } catch(err) {
+             console.log("Error deleting list data", err)
+          }
+    }
 
 
     useEffect(() => {
@@ -65,60 +72,23 @@ const List = () => {
         <div className='list'>
             <Header />
                 <div className='list-page'>
-                           
-                    <div className='container'>
-                        {/* listData를 map 함수로 순회 */}
-                        {listData.map((list, index) => (
-                            <Listitem 
-                                key={index}        // 각 항목에 고유 key를 부여
-                                itemOnchange={setListData}  // 상태 변경 함수
-                                listItem={list.listitem}  
-                                memo={list.memo}   
-                                // check={list.check}  
-                            />
-                        ))}
-
-                    </div>
-
-                    <div className='list-add-btn'>
-                        <button onClick={() => setAddListModal(true)}>리스트 추가</button>
-                        {/* <button></button> */}
-                    </div>
-                    {addListModal && (
-                        <Modal isOpen={true}>
-                            <div className="modal-overlay" onClick={handleClose}></div>
-                            <div className="modal">
-                                <div className="edit-modal-content">
-                                    <button 
-                                        className="list-edit-commit"
-                                        onClick={() => {
-                                  
-                                            handleClose();
-                                        }}
-                                    >
-                                        저장
-                                    </button>
-                                    <button className="list-edit-close" onClick={handleClose}>
-                                        닫기
-                                    </button>
-                                </div>
-
-                                {/* <input 
-                                    className='item-edit-input'
-                                    type='text'
-                                    value={itemEdit}
-                                    onChange={(e) => setItemEdit(e.target.value)} // 변경 사항 관리
+                    <div className='form'>
+                         <div className='container'>
+                            {/* listData를 map 함수로 순회 */}
+                            {listData.map((list, index) => (
+                                <Listitem 
+                                    key={index}        // 각 항목에 고유 key를 부여
+                                    itemOnchange={setListData}  // 상태 변경 함수
+                                    listItem={list.listitem}  
+                                    memo={list.memo}   
+                                    listDeleteOnclick={() => listDelete(list)}
+                                    // check={list.check}
                                 />
-
-                                <input 
-                                    className='memo-edit-input'
-                                    type='text'
-                                    value={memoEdit}
-                                    onChange={(e) => setMemoEdit(e.target.value)} // 메모 변경 사항 관리
-                                /> */}
-                            </div>
-                        </Modal>
-            )}
+                            ))}
+                        </div>
+                        <ListAddBtn />
+                    </div>
+   
                 </div>
             <Footer/>
         </div>

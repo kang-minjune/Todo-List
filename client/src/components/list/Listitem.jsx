@@ -15,7 +15,8 @@ const Listitem = ({
         itemId, 
         itemOnchange, 
         listItem, 
-        memo 
+        memo,
+        listDeleteOnClick
     }) => {
 
     const [checkButton, setCheckButton] = useState(false);
@@ -62,7 +63,6 @@ const Listitem = ({
                                 className="list-edit-commit"
                                 onClick={() => {
                                     itemOnchange(itemEdit); // itemOnchange에 입력값 전달
-                                    handleClose();
                                 }}
                             >
                                 저장
@@ -92,6 +92,7 @@ const Listitem = ({
             <button
                 type='button'
                 className='delete-button'
+                onClick={listDeleteOnClick}
             >
                 삭제
             </button>
