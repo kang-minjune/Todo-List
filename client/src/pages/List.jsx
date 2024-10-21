@@ -15,6 +15,7 @@ const List = () => {
     const apiUrl = process.env.REACT_APP_API_URL;
     const { user } = useContext(AuthContext);
 
+
     const [ listData, setListData ] = useState([])
 
     const [userData, setUserData] = useState({
@@ -50,7 +51,7 @@ const List = () => {
     const listDelete = async (list) => {
           try{
             await axios.delete(`${apiUrl}/list/delete/${list._id}`);
-            setListData((prevState) => prevState.filter((item) => item._id !== list._id));
+            setListData((userData) => userData.filter((item) => item._id !== list._id));
 
           } catch(err) {
              console.log("Error deleting list data", err)
@@ -66,7 +67,6 @@ const List = () => {
         }
     }, [user])
 
-    const { username } = userData ;
 
     return (
         <div className='list'>
@@ -80,7 +80,8 @@ const List = () => {
                                     key={index}        // 각 항목에 고유 key를 부여
                                     itemOnchange={setListData}  // 상태 변경 함수
                                     listItem={list.listitem}  
-                                    memo={list.memo}   
+                                    memo={list.memo} 
+
                                     listDeleteOnclick={() => listDelete(list)}
                                     // check={list.check}
                                 />
