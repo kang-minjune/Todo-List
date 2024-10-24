@@ -19,7 +19,7 @@ const ListAddBtn = () => {
     };
 
     // 입력된 값을 postData에 업데이트하는 함수
-    const handleChange = (e) => {
+    const postHandle = (e) => {
         const { id, value } = e.target;
         setPostData((prevData) => ({
             ...prevData,
@@ -58,7 +58,7 @@ const ListAddBtn = () => {
                           type="text" 
                           id="listitem"
                           value={postData.listitem}
-                          onChange={handleChange}
+                          onChange={postHandle}
                           className='post-item-input'
                           placeholder='오늘의 투두는?'
                     />
@@ -70,7 +70,7 @@ const ListAddBtn = () => {
                           type="text" 
                           id="memo"
                           value={postData.memo}
-                          onChange={handleChange}
+                          onChange={postHandle}
                           className='post-memo-input'
                           placeholder='메모장 입니다. 필요한 내용을 적어주세요.'
                     />

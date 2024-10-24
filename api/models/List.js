@@ -2,11 +2,6 @@ import mongoose from 'mongoose';
 
 const ListSchema = new mongoose.Schema(
     {
-        // userid : { //현재 로그인 인증 된 유저 ObjectID
-        //     type: String, 
-        //     required: true,
-        //     unique: true,
-        // },
         listitem : {
             type: String, 
             required: true,
@@ -14,6 +9,18 @@ const ListSchema = new mongoose.Schema(
         memo : {
             type: String, 
             required: true,
+        },
+        createdate : {
+            type: Date,
+            require: true,
+        },
+        enddate : {
+            type: Date,
+            require: true,
+        },
+        updatedate:{
+            type: Date,
+            require: true,
         },
         check : {
             type: Boolean,

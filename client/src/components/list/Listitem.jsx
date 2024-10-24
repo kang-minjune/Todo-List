@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-
+import axios from 'axios';
 import '../list/list-item.scss';
 
 /**
@@ -16,7 +16,7 @@ const Listitem = ({
         itemOnchange, 
         listItem, 
         memo,
-        listDeleteOnClick
+        deleteBtnOnclick
     }) => {
 
     const [checkButton, setCheckButton] = useState(false);
@@ -92,7 +92,7 @@ const Listitem = ({
             <button
                 type='button'
                 className='delete-button'
-                onClick={listDeleteOnClick}
+                onClick={deleteBtnOnclick}
             >
                 삭제
             </button>
