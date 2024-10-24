@@ -22,6 +22,10 @@ const ListSchema = new mongoose.Schema(
             type: Date,
             require: true,
         },
+        emoticon : {
+            type: String,
+            requireL: false,
+        },
         check : {
             type: Boolean,
             default: false,

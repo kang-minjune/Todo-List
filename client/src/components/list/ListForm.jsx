@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import EmojiChoice from './emoji-choice/EmojiChoice';
 import axios from 'axios';
 
 import '../list/list-add-btn.scss';
 
-const ListAddBtn = () => {
+/**
+ * 리스트 입력 폼 컴포넌트
+ * @returns 
+ */
+
+const ListForm = () => {
 
     const apiUrl = process.env.REACT_APP_API_URL;
     
@@ -65,6 +72,13 @@ const ListAddBtn = () => {
                     
                     <button className='post-btn' onClick={listPost}>추가</button>
                     <button onClick={handleClose}>닫기</button>
+
+                    <div className='datepicker'>
+                        <DatePicker /> <span> ~ </span>
+                        <DatePicker />
+                    </div>
+
+                    <EmojiChoice/>
                     
                     <input 
                           type="text" 
@@ -80,4 +94,4 @@ const ListAddBtn = () => {
     );
 };
 
-export default ListAddBtn;
+export default ListForm;

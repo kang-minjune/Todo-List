@@ -3,8 +3,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import Listitem from '../components/list/Listitem';
-import ListAddBtn from '../components/list/ListAddBtn';
+import ListForm from '../components/list/ListForm';
 import { AuthContext } from '../context/AuthContext';
+
 import axios from 'axios';
 
 import '../styles/list.scss'
@@ -42,15 +43,7 @@ const List = () => {
          }
     }, [apiUrl]);
 
-
-    // useEffect(() => {
-    //   if(user){
-    //         setUserData({
-    //             username: user.username,
-    //         })
-    //     }
-    // }, [user])
-
+    //리스트 항목 지우는 코드
     const listDelete = async(list) => {
         const itemId = list._id; // 객체에서 _id를 추출
         console.log(itemId)
@@ -68,10 +61,8 @@ const List = () => {
             window.location.replace("/list");
         } catch (err) {
             console.log(err);
-        }
+        } 
     };
-
-
 
     return (
         <div className='list'>
@@ -83,16 +74,14 @@ const List = () => {
                             {ListData.map((list, index) => (
                                 <Listitem 
                                     key={index}        // 각 항목에 고유 key를 부여
-                                    itemOnchange={setListData}  // 상태 변경 함수
+                                    itemOnchange={setListData}
                                     listItem={list.listitem}  
                                     memo={list.memo}
                                     deleteBtnOnclick={() => listDelete(list)}
-
-                                    // listDeleteOnclick={() => listDelete(deleteData)}
                                 />
                             ))}
                         </div>
-                        <ListAddBtn />
+                        <ListForm />
                     </div>
    
                 </div>

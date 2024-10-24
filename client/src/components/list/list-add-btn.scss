@@ -77,6 +77,16 @@
     margin: 0 auto;
     width: 400px;
     margin-top: 50px;
+
+        .datepicker{
+            display: flex;
+            gap: 2px;
+            margin-bottom: 10px;
+
+            span{
+                font-size: 25px;
+            }
+        }
         
         button{
             background-color: #000000;
@@ -113,4 +123,5 @@
                     outline: none;
                 }
         }
+
 }

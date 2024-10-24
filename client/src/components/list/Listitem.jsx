@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import axios from 'axios';
+import ListCheckbox from './ListCheckbox';
+
 import '../list/list-item.scss';
 
 /**
@@ -16,17 +17,13 @@ const Listitem = ({
         itemOnchange, 
         listItem, 
         memo,
-        deleteBtnOnclick
+        deleteBtnOnclick,
     }) => {
 
-    const [checkButton, setCheckButton] = useState(false);
+    
     const [editModal, setEditModal] = useState(false);
     const [itemEdit, setItemEdit] = useState(listItem); // 입력값 관리
     const [memoEdit, setMemoEdit] = useState(memo); // 메모 입력값 관리
-
-    const checkBtnHandler = () => {
-        setCheckButton(!checkButton);
-    };
 
     const handleClose = () => {
         setEditModal(false);
@@ -35,17 +32,7 @@ const Listitem = ({
     return (
         <div className='item-form'>
             <span id={itemId}>{listItem}</span>
-            <button 
-                type='button'
-                className='check-button' 
-                onClick={checkBtnHandler}
-            >
-                {checkButton ? (
-                    <img src='./icons/checkbox/list-check-on.png' width="20px" height="20px" />
-                ) : (
-                    <img src='./icons/checkbox/list-check-off.png' width="18px" height="18px" />
-                )}
-            </button>
+            <ListCheckbox />
             <button
                 type='button'
                 className='edit-button'
@@ -78,6 +65,8 @@ const Listitem = ({
                             value={itemEdit}
                             onChange={(e) => setItemEdit(e.target.value)} // 변경 사항 관리
                         />
+
+                        
 
                         <input 
                             className='memo-edit-input'
