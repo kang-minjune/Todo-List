@@ -72,10 +72,20 @@ const ListForm = () => {
                     <div className='datepick-emoji'>
                         <div className='datepick'>
                             <label htmlFor='createdate' style={{marginLeft:'10px'}}>시작</label>
-                            <input type="date" id='createdate' style={{width:'150px', marginLeft:'5px'}}/>
+                            <input 
+                                   type="date" 
+                                   id='createdate' 
+                                   value={postData.createdate} 
+                                   onChange={postHandle}
+                                   style={{width:'150px', marginLeft:'5px'}}/>
 
                             <label htmlFor='enddate' style={{marginLeft:'10px'}}>종료</label>
-                            <input type="date" id='enddate' style={{width:'150px', marginLeft:'5px'}}/> 
+                            <input 
+                                   type="date" 
+                                   id='enddate' 
+                                   value={postData.enddate} 
+                                   onChange={postHandle}
+                                   style={{width:'150px', marginLeft:'5px'}} /> 
                         </div>
 
                         <div className='emoji-container'>

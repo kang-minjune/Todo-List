@@ -108,7 +108,7 @@
         }
 
         .post-item-input{
-            width: 300px;
+            width: 305px;
             border: none;
             border-bottom: 1px solid black;
 
@@ -118,10 +118,11 @@
         }
 
         .post-memo-input{
-                width: 400px;
-                height: 300px;    
+                width: 395px;
+                height: 250px;    
                 text-align:left ;
                 font-size: 15px;
+                margin: 0 auto;
 
                 &:focus{
                     outline: none;
