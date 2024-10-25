@@ -22,7 +22,7 @@ const ListSchema = new mongoose.Schema(
             type: Date,
             require: true,
         },
-        emoticon : {
+        emoji : {
             type: String,
             requireL: false,
         },

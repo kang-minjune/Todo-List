@@ -1,5 +1,10 @@
 import React, {useState} from 'react';
 
+
+/**
+ * 
+ * @returns 리스트 체크박스 컴포넌트
+ */
 const ListCheckbox = () => {
     const [checkButton, setCheckButton] = useState(false);
     const [ checkState, setCheckState ] = useState([]);

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import EmojiChoice from './emoji-choice/EmojiChoice';
 import axios from 'axios';
 
-import '../list/list-add-btn.scss';
+import '../list/list-form.scss'
 
 /**
  * 리스트 입력 폼 컴포넌트
@@ -16,10 +15,7 @@ const ListForm = () => {
     
     const [addListModal, setAddListModal] = useState(false);
 
-    const [postData, setPostData] = useState({
-        listitem: '',
-        memo: '',
-    });
+    const [postData, setPostData] = useState([]);
 
     const handleClose = () => {
         setAddListModal(false);
@@ -52,7 +48,7 @@ const ListForm = () => {
     };
 
     return (
-        <div>
+        <div className='list-form'>
             <div className='list-add-btn'>
                 <button onClick={() => setAddListModal(true)}>
                     PLUS
@@ -73,21 +69,28 @@ const ListForm = () => {
                     <button className='post-btn' onClick={listPost}>추가</button>
                     <button onClick={handleClose}>닫기</button>
 
-                    <div className='datepicker'>
-                        <DatePicker /> <span> ~ </span>
-                        <DatePicker />
-                    </div>
+                    <div className='datepick-emoji'>
+                        <div className='datepick'>
+                            <label htmlFor='createdate' style={{marginLeft:'10px'}}>시작</label>
+                            <input type="date" id='createdate' style={{width:'150px', marginLeft:'5px'}}/>
 
-                    <EmojiChoice/>
-                    
-                    <input 
-                          type="text" 
+                            <label htmlFor='enddate' style={{marginLeft:'10px'}}>종료</label>
+                            <input type="date" id='enddate' style={{width:'150px', marginLeft:'5px'}}/> 
+                        </div>
+
+                        <div className='emoji-container'>
+                            <span>오늘의 감정</span>
+                            <EmojiChoice />
+                        </div>
+                    </div>
+           
+                    <textarea 
                           id="memo"
                           value={postData.memo}
                           onChange={postHandle}
                           className='post-memo-input'
-                          placeholder='메모장 입니다. 필요한 내용을 적어주세요.'
-                    />
+                          placeholder='메모장 입니다. '
+                    ></textarea>
                 </div>
             )}
         </div>
