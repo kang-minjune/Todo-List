@@ -12,7 +12,7 @@ import '../list/list-item.scss';
  * @param {*} memo 
  * @returns 
  */
-const Listitem = ({ 
+const ListEdit = ({ 
         itemId, 
         itemOnchange, 
         listItem, 
@@ -29,6 +29,17 @@ const Listitem = ({
         setEditModal(false);
     };
 
+    const handleEditChange = ( id, value) => {
+         setEditModal((prevState) => ({
+            ...prevState,
+            [id] : value,
+         }));
+    }
+
+    const itemEditHandler = () => {
+        
+    }
+
     return (
         <div className='item-form'>
             <span id={itemId}>{listItem}</span>
@@ -36,7 +47,7 @@ const Listitem = ({
             <button
                 type='button'
                 className='edit-button'
-                onClick={() => setEditModal(true)}
+                onClick={() => setEditModal(true)}  
             >
                 수정
             </button>
@@ -89,4 +100,4 @@ const Listitem = ({
     );
 };
 
-export default Listitem;
+export default ListEdit;

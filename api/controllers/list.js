@@ -46,7 +46,7 @@ export const listUpdate = async (req, res, next) => {
             req.params.id
          );
 
-         if(ObjectId.isValid(listId)){
+         if(!ObjectId.isValid(listId)){
             return res.status(400).json({ message: "Invalid ID format", listId });
          }
           
@@ -55,7 +55,12 @@ export const listUpdate = async (req, res, next) => {
             {
                  $set: {
                        listitem : req.body.listitem,
-                       memo: req.body.memo
+                       memo: req.body.memo,
+                       check: req.body.check,
+                       createdate: req.body.createdate,
+                       enddate: req.body.enddate,
+                       updatedate: req.body.updatedate,
+                       emoji: req.body.emoji,
                  }
             },
             {new: true, runValidators: true }

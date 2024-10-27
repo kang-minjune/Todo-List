@@ -10,19 +10,17 @@ import Mypage from './pages/Mypage';
 import './App.css';
 function App() {
   return (
-    <BrowserRouter>
-         <Routes>
-              <Route path='/' element={<Login />} />
-              <Route path='/register' element={<Register />} />
-              
-              {/* <AuthContextProvider> */}
-                <Route path='/list' element={<List />} />
-                <Route path='/calendar' element={<CalendarPage />} />
-                <Route path='/mypage' element={<Mypage />} />
-              {/* </AuthContextProvider> */}
-              
-         </Routes>
-    </BrowserRouter>
+      <AuthContextProvider>
+        <BrowserRouter>
+            <Routes>
+                  <Route path='/' element={<Login />} />
+                  <Route path='/register' element={<Register />} />
+                  <Route path='/list' element={<List />} />
+                  <Route path='/calendar' element={<CalendarPage />} />
+                  <Route path='/mypage' element={<Mypage />} />
+            </Routes>
+        </BrowserRouter>
+      </AuthContextProvider>
   );
 }
 

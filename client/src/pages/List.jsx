@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 
+import Login from './Login';
+
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
-import Listitem from '../components/list/Listitem';
+import ListEdit from '../components/list/ListEdit';
 import ListForm from '../components/list/ListForm';
+
 import { AuthContext } from '../context/AuthContext';
 
 import axios from 'axios';
@@ -11,9 +14,11 @@ import axios from 'axios';
 import '../styles/list.scss'
 
 const List = () => {
-
+    
     const apiUrl = process.env.REACT_APP_API_URL;
+
     const { user } = useContext(AuthContext);
+    
     console.log(user);
 
     const [ ListData, setListData ] = useState([])
@@ -66,26 +71,33 @@ const List = () => {
 
     return (
         <div className='list'>
-            <Header />
-                <div className='list-page'>
-                    <div className='form'>
-                         <div className='container'>
-                            {/* listData를 map 함수로 순회 */}
-                            {ListData.map((list, index) => (
-                                <Listitem 
-                                    key={index}        // 각 항목에 고유 key를 부여
-                                    itemOnchange={setListData}
-                                    listItem={list.listitem}  
-                                    memo={list.memo}
-                                    deleteBtnOnclick={() => listDelete(list)}
-                                />
-                            ))}
+            {/* {user ? ( */}
+                <>
+                    <Header />
+                        <div className='list-page'>
+                            <div className='form'>
+                                <div className='container'>
+                                    {/* listData를 map 함수로 순회 */}
+                                    {ListData.map((list, index) => (
+                                        <ListEdit 
+                                            key={index}        // 각 항목에 고유 key를 부여
+                                            itemOnchange={setListData}
+                                            listItem={list.listitem}  
+                                            memo={list.memo}
+                                            deleteBtnOnclick={() => listDelete(list)}
+                                        />
+                                    ))}
+                                </div>
+                                <ListForm />
+                            </div>
+        
                         </div>
-                        <ListForm />
-                    </div>
-   
-                </div>
-            <Footer/>
+                    <Footer/>
+                </>
+            {/* ) :(
+                    <Login />
+            )} */}
+            
         </div>
     );
 };

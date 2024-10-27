@@ -89,7 +89,7 @@ const ListForm = () => {
                         </div>
 
                         <div className='emoji-container'>
-                            <span>오늘의 감정</span>
+                            {/* <span>오늘의 감정</span>s */}
                             <EmojiChoice />
                         </div>
                     </div>
