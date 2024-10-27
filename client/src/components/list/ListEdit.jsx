@@ -15,9 +15,10 @@ import '../list/list-item.scss';
 const ListEdit = ({ 
         itemId, 
         itemOnchange, 
-        listItem, 
+        listItem,
         memo,
         deleteBtnOnclick,
+        listEditOnclick,
     }) => {
 
     
@@ -29,39 +30,31 @@ const ListEdit = ({
         setEditModal(false);
     };
 
-    const handleEditChange = ( id, value) => {
-         setEditModal((prevState) => ({
-            ...prevState,
-            [id] : value,
-         }));
-    }
-
-    const itemEditHandler = () => {
-        
-    }
+    const handleSave = () => {
+        listEditOnclick(itemId, itemEdit, memoEdit);
+        setEditModal(false);
+    };
 
     return (
         <div className='item-form'>
-            <span id={itemId}>{listItem}</span>
+            <span id={itemId}>{itemEdit}</span>
             <ListCheckbox />
             <button
                 type='button'
                 className='edit-button'
-                onClick={() => setEditModal(true)}  
+                onClick={()=>setEditModal(true)}  
             >
                 수정
             </button>
 
             {editModal && (
-                <Modal isOpen={true}>
+                <Modal isOpen={true} onRequestClose={handleClose}>
                     <div className="modal-overlay" onClick={handleClose}></div>
                     <div className="modal">
                         <div className="edit-modal-content">
                             <button 
                                 className="list-edit-commit"
-                                onClick={() => {
-                                    itemOnchange(itemEdit); // itemOnchange에 입력값 전달
-                                }}
+                                onClick={handleSave}
                             >
                                 저장
                             </button>
@@ -71,15 +64,33 @@ const ListEdit = ({
                         </div>
 
                         <input 
+                            id='listItem'
                             className='item-edit-input'
                             type='text'
                             value={itemEdit}
                             onChange={(e) => setItemEdit(e.target.value)} // 변경 사항 관리
                         />
 
-                        
+                        <div className='datepick'>
+                            <label htmlFor='createdate' style={{marginLeft:'10px'}}>시작</label>
+                            <input 
+                                   type="date" 
+                                   id='createdate' 
+                                //    value={postData.createdate} 
+                                //    onChange={postHandle}
+                                   style={{width:'150px', marginLeft:'5px'}}/>
+
+                            <label htmlFor='enddate' style={{marginLeft:'10px'}}>종료</label>
+                            <input 
+                                   type="date" 
+                                   id='enddate' 
+                                //    value={postData.enddate} 
+                                //    onChange={postHandle}
+                                   style={{width:'150px', marginLeft:'5px'}} /> 
+                        </div>
 
                         <input 
+                            id='memo'
                             className='memo-edit-input'
                             type='text'
                             value={memoEdit}

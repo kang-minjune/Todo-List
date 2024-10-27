@@ -95,7 +95,7 @@ const ListForm = () => {
                     </div>
            
                     <textarea 
-                          id="memo"
+                          id='memo'
                           value={postData.memo}
                           onChange={postHandle}
                           className='post-memo-input'
