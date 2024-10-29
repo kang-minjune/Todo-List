@@ -4,7 +4,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import List from './pages/List';
-import CalendarPage from './pages/Calendar';
+import CalendarPage from './pages/CalendarPage';
 import Mypage from './pages/Mypage';
 
 import './App.css';

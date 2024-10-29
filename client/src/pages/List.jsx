@@ -116,9 +116,14 @@ const List = () => {
                                             itemOnchange={setListData}
                                             listItem={list.listitem}  
                                             memo={list.memo}
+                                            createdate={list.createdate}
+                                            enddate={list.enddate}
                                             deleteBtnOnclick={() => listDelete(list)}
-                                            listEditOnclick={(id, updatedItem, updatedMemo) => listUpdate(id, updatedItem, updatedMemo)}
-                                        />
+                                            // updatedCreatedate와 updatedEnddate가 전달되도록 수정
+                                            listEditOnclick={(id, updatedItem, updatedMemo, updatedCreatedate, updatedEnddate) => 
+                                                listUpdate(id, updatedItem, updatedMemo, updatedCreatedate, updatedEnddate)
+                                            }
+                                    />
                                     ))}
                                 </div>
                                 <ListForm />

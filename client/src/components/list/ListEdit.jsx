@@ -17,6 +17,8 @@ const ListEdit = ({
         itemOnchange, 
         listItem,
         memo,
+        createdate,
+        enddate,
         deleteBtnOnclick,
         listEditOnclick,
     }) => {
@@ -25,13 +27,15 @@ const ListEdit = ({
     const [editModal, setEditModal] = useState(false);
     const [itemEdit, setItemEdit] = useState(listItem); // 입력값 관리
     const [memoEdit, setMemoEdit] = useState(memo); // 메모 입력값 관리
+    const [createdateEdit, setCreatedateEdit] = useState(createdate);
+    const [enddateEdit, setEnddateEdit] = useState(enddate);
 
     const handleClose = () => {
         setEditModal(false);
     };
 
     const handleSave = () => {
-        listEditOnclick(itemId, itemEdit, memoEdit);
+        listEditOnclick(itemId, itemEdit, memoEdit, createdateEdit, enddateEdit);
         setEditModal(false);
     };
 
@@ -71,21 +75,21 @@ const ListEdit = ({
                             onChange={(e) => setItemEdit(e.target.value)} // 변경 사항 관리
                         />
 
-                        <div className='datepick'>
+                        <div className='datepick-edit'>
                             <label htmlFor='createdate' style={{marginLeft:'10px'}}>시작</label>
                             <input 
                                    type="date" 
                                    id='createdate' 
-                                //    value={postData.createdate} 
-                                //    onChange={postHandle}
+                                   value={createdateEdit} 
+                                   onChange={(e) => setCreatedateEdit(e.target.value)}
                                    style={{width:'150px', marginLeft:'5px'}}/>
 
                             <label htmlFor='enddate' style={{marginLeft:'10px'}}>종료</label>
                             <input 
                                    type="date" 
                                    id='enddate' 
-                                //    value={postData.enddate} 
-                                //    onChange={postHandle}
+                                   value={enddateEdit} 
+                                   onChange={(e) => setEnddateEdit(e.target.value)}
                                    style={{width:'150px', marginLeft:'5px'}} /> 
                         </div>
 
