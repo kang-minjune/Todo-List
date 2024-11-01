@@ -2,6 +2,10 @@ import mongoose from 'mongoose';
 
 const ListSchema = new mongoose.Schema(
     {
+        userid: {
+            type: String,
+            require: true,
+        },
         listitem : {
             type: String, 
             required: true,

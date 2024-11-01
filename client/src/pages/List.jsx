@@ -122,8 +122,8 @@ const List = () => {
                                     {/* listData를 map 함수로 순회 */}
                                     {listData.map((list, index) => (
                                         <ListEdit 
-                                            key={index}      
-                                            itemId={list._id} // 각 항목의 고유 ID를 itemId로 전달
+                                            key={index}
+                                            itemId={list._id}
                                             itemOnchange={setListData}
                                             listItem={list.listitem}  
                                             memo={list.memo}

@@ -26,10 +26,10 @@ const ListForm = () => {
     });
     
     useEffect(() => {
-        if(user){
+        if(user && user._id){
             setPostData((prevData) => ({
                 ...prevData,
-                userid:user._id
+                userid : user._id,
             }))
         }
     }, [user]);
@@ -41,10 +41,10 @@ const ListForm = () => {
     // 입력된 값을 postData에 업데이트하는 함수
     const postHandle = (e) => {
         const { id, value } = e.target;
-        setPostData((prevData) => ({
-            ...prevData,
-            [id]: value,
-        }));
+            setPostData((prevData) => ({
+                ...prevData,
+                [id]: value,
+            }));
     };
 
     const listPost = async () => {
