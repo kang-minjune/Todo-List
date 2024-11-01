@@ -20,7 +20,7 @@ const ListCheckbox = () => {
     const postCheck = async (list) => {
         const listId = list._id;
         // 버튼 상태 반전
-        const checkState = list._check; 
+        const checkState = list.check; 
         setCheckButton(!checkButton);
         setCheckData(checkState);
         // 서버로 전송할 데이터 준비

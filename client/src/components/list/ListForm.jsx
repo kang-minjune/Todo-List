@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import EmojiChoice from './emoji-choice/EmojiChoice';
+import React, { useContext, useEffect, useState } from 'react';
+// import EmojiChoice from './emoji-choice/EmojiChoice';
 import axios from 'axios';
 
 import '../list/list-form.scss'
+import { AuthContext } from '../../context/AuthContext';
 
 /**
  * 리스트 입력 폼 컴포넌트
@@ -12,10 +13,26 @@ import '../list/list-form.scss'
 const ListForm = () => {
 
     const apiUrl = process.env.REACT_APP_API_URL;
-    
-    const [addListModal, setAddListModal] = useState(false);
+    const { user } = useContext(AuthContext);
 
-    const [postData, setPostData] = useState([]);
+    const [addListModal, setAddListModal] = useState(false);
+     
+    const [postData, setPostData] = useState({
+        userid: "", 
+        listitem: "",
+        createdate: "",
+        enddate: "",
+        memo: "",
+    });
+    
+    useEffect(() => {
+        if(user){
+            setPostData((prevData) => ({
+                ...prevData,
+                userid:user._id
+            }))
+        }
+    }, [user]);
 
     const handleClose = () => {
         setAddListModal(false);
@@ -90,7 +107,7 @@ const ListForm = () => {
 
                         <div className='emoji-container'>
                             {/* <span>오늘의 감정</span>s */}
-                            <EmojiChoice />
+                            {/* <EmojiChoice /> */}
                         </div>
                     </div>
            

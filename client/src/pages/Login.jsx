@@ -31,17 +31,22 @@ const Login = () => {
     console.log(credentials);
     try {
       const apiUrl = process.env.REACT_APP_API_URL;
-      console.log(`API URL: ${apiUrl}`)
+      console.log(`API URL: ${apiUrl}`);
       const response = await axios.post(`${apiUrl}/auth/login`, credentials, { withCredentials: true });
+      
+      const user = response.data.details;
+      if (user) {
+        localStorage.setItem('user', JSON.stringify(response.data.details));
+      }
+      
       console.log(response.data);
-      // dispatch({ type: "LOGIN", payload: response.data.user });
       alert("로그인에 성공하였습니다.");
-      navigate('/list');
+      window.location.replace('/list')
     } catch (err) {
       if (err.response && err.response.data && err.response.data.message) {
         alert(err.response.data.message);
       } else {
-        alert("로그인 정보 잘못되었습니다. 다시 시도해주세요.")
+        alert("로그인 정보가 잘못되었습니다. 다시 시도해주세요.");
       }
     }
   };

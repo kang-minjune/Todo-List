@@ -18,8 +18,6 @@ const List = () => {
     const apiUrl = process.env.REACT_APP_API_URL;
 
     const { user } = useContext(AuthContext);
-    
-    console.log(user);
 
     const [ listData, setListData ] = useState([])
     const [ deleteData, setDeleteData ] = useState([]); 
@@ -29,7 +27,6 @@ const List = () => {
     useEffect(() => {
         const listGet = async () => {
             try{
-                console.log(`API URL: ${apiUrl}`)
                 const response = await axios.get(`${apiUrl}/list/allread`);
                 console.log(response.data)
                 
@@ -71,7 +68,14 @@ const List = () => {
         } 
     };
 
-    const listUpdate = async (itemId, updatedItem, updatedMemo, updatedCreatedate, updatedEnddate ) => {
+    const listUpdate = async (
+                     itemId, 
+                     updatedItem, 
+                     updatedMemo, 
+                     updatedCreatedate, 
+                     updatedEnddate,
+                     updatedCheck
+                     ) => {
         if (!itemId) {
             console.error("itemId is undefined");
             return;
@@ -80,17 +84,24 @@ const List = () => {
         try {
             console.log("Updating item with ID:", itemId);
             const response = await axios.put(`${apiUrl}/list/update/${itemId}`, {
-                listitem: updatedItem, // 수정된 항목 값
-                memo: updatedMemo, // 수정된 메모 값
+                listitem: updatedItem,
+                memo: updatedMemo,
                 createdate: updatedCreatedate,
                 enddate: updatedEnddate,
+                check: updatedCheck,
             });
             console.log(response.data);
     
             // 업데이트된 데이터를 listData에 반영
             setListData((prevData) => 
                 prevData.map((item) => 
-                    item._id === itemId ? { ...item, listitem: updatedItem, memo: updatedMemo, createdate: updatedCreatedate, enddate: updatedEnddate } : item
+                    item._id === itemId ? { 
+                            ...item, 
+                            listitem: updatedItem, 
+                            memo: updatedMemo, 
+                            createdate: updatedCreatedate, 
+                            enddate: updatedEnddate,
+                            check: updatedCheck } : item
                 )
             );
     
@@ -102,7 +113,7 @@ const List = () => {
 
     return (
         <div className='list'>
-            {/* {user ? ( */}
+            {user ? (
                 <>
                     <Header />
                         <div className='list-page'>
@@ -120,11 +131,12 @@ const List = () => {
                                             enddate={list.enddate}
                                             deleteBtnOnclick={() => listDelete(list)}
                                             // updatedCreatedate와 updatedEnddate가 전달되도록 수정
-                                            listEditOnclick={(id, updatedItem, updatedMemo, updatedCreatedate, updatedEnddate) => 
-                                                listUpdate(id, updatedItem, updatedMemo, updatedCreatedate, updatedEnddate)
+                                            listEditOnclick={(id, updatedItem, updatedMemo, updatedCreatedate, updatedEnddate, updatedCheck) => 
+                                                listUpdate(id, updatedItem, updatedMemo, updatedCreatedate, updatedEnddate, updatedCheck)
                                             }
                                     />
                                     ))}
+                                    
                                 </div>
                                 <ListForm />
                             </div>
@@ -132,9 +144,9 @@ const List = () => {
                         </div>
                     <Footer/>
                 </>
-            {/* ) :(
+            ) :(
                     <Login />
-            )} */}
+            )}
             
         </div>
     );
