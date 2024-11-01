@@ -6,8 +6,8 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
 import authRoute from './routes/auth.js';
-import listRoute from './routes/list.js'
-// import userRoute from './routes/user.js';
+import listRoute from './routes/list.js';
+import userRoute from './routes/user.js';
 
 
 const app = express();
@@ -38,7 +38,7 @@ app.use(morgan('combined'));
 
 app.use("/api/auth", authRoute);
 app.use("/api/list", listRoute);
-// app.use("/api/user", userRoute);
+app.use("/api/user", userRoute);
 
 
 
