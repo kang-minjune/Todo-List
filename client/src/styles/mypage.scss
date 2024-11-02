@@ -10,28 +10,38 @@
                 margin: 0 auto;
                 display: grid;
 
-                img{
-                    width: 150px;
-                    height: 150px;
-                    margin: 0 auto;
-                    margin-top: 10px;
+                .form1{
+                    display: grid;
+
+                    img{
+                        width: 150px;
+                        height: 150px;
+                        margin: 0 auto;
+                        margin-top: 10px;
+                    }
+
+                    span{
+                        margin: 0 auto;
+                        margin-top: 10px;
+                        font-size: 16px;
+                    }
                 }
 
-                span{
-                    margin: 0 auto;
-                    margin-top: 10px;
-                    font-size: 20px;
+                .form2 {
+                    display: grid;
+                    
+                    .logout-button{
+                        width: 100%;
+                        margin:0 auto;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        background: none;
+                        border:none;
+
+                    }
                 }
 
-                .logout-button{
-                    width: 100px;
-
-                    margin:0 auto;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                    background: none;
-                    border:none;
-                }
+                
             }
         }
 }

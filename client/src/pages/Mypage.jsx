@@ -56,10 +56,15 @@ const Mypage = () => {
                     <Header />
                     <div className='my-page'>
                         <div className='container'>
-                            <img src="../profile.png" alt="지정 프로필" />
-                            <span>{userEditData.realname}님 안녕하세요. 반갑습니다.</span>
-                            <UserEdit/>
-                            <button className='logout-button' onClick={logoutHandler}>로그아웃</button>
+                            <div className='form1'>
+                                <img src="../profile.png" alt="지정 프로필" />
+                                <span>{userEditData.realname}님 안녕하세요</span>
+                            </div>
+                            <div className='form2'>
+                                <UserEdit/>
+                                <button className='logout-button' onClick={logoutHandler}>로그아웃</button>
+                            </div>
+                            
                         </div>
                     </div>
                   </div>

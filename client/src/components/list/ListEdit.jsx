@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import ListCheckbox from './ListCheckbox';
 
-import '../list/list-item.scss';
+import '../list/list-edit.scss';
 
 /**
  * 리스트 항목 컴포넌트
