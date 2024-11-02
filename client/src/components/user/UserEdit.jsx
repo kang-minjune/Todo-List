@@ -21,7 +21,7 @@ const UserEdit = (props) => {
                 contentLabel="Edit User Information"
             >
                 <h2>정보수정</h2>
-                <button onClick={clickModal}>Close</button>
+                <button onClick={clickModal}>닫기</button>
             </Modal>
         </div>
     );

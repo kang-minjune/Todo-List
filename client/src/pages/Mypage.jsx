@@ -41,6 +41,7 @@ const Mypage = () => {
             if (response && response.data) {
                 localStorage.removeItem('user');
                 setUserData(null);
+                window.location.replace('/');
             }
         } catch (err) {
             console.error(err);

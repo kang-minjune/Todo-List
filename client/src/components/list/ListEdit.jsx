@@ -52,7 +52,7 @@ const ListEdit = ({
             </button>
 
             {editModal && (
-                <Modal isOpen={true} onRequestClose={handleClose}>
+                <Modal isOpen={true} onRequestClose={handleClose} className='list-edit-modal'>
                     <div className="modal-overlay" onClick={handleClose}></div>
                     <div className="modal">
                         <div className="edit-modal-content">
