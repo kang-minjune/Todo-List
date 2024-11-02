@@ -1,25 +1,29 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
+import Login from './Login';
+
+import UserEdit from '../components/user/UserEdit';
 
 import { AuthContext } from '../context/AuthContext';
+import axios from 'axios';
+
 
 import '../styles/mypage.scss';
-import axios from 'axios';
-import Login from './Login';
 
 const Mypage = () => {
     const apiUrl = process.env.REACT_APP_API_URL;
     const { user } = useContext(AuthContext);
+    const [userEditData, setUserEditData] = useState([]);
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
         if (apiUrl && user) {
             const userGet = async () => {
                 try {
-                    const response = await axios.get(`${apiUrl}/auth/login/${user._id}`);
+                    const response = await axios.get(`${apiUrl}/user/read/${user._id}`);
                     if (response && response.data) {
-                        setUserData(response.data);
+                        setUserEditData(response.data);
                     }
                 } catch (err) {
                     console.error(err);
@@ -29,7 +33,7 @@ const Mypage = () => {
         } else {
             console.error('API URL or user is not defined');
         }
-    }, [apiUrl, user]);
+    }, [apiUrl]);
 
     const logoutHandler = async () => {
         try {
@@ -47,13 +51,16 @@ const Mypage = () => {
         <div>
             {user? (
                 <>
-                  <Header />
-                  <div className='my-page'>
-                      <div className='container'>
-                          <img src="../profile.png" alt="지정 프로필" />
-                          <span>{userData ? `${userData.name}님 안녕하세요. 반갑습니다.` : '로그인 해주세요.'}</span>
-                          <button className='logout-button' onClick={logoutHandler}>로그아웃</button>
-                      </div>
+                  <div className='my-header'>
+                    <Header />
+                    <div className='my-page'>
+                        <div className='container'>
+                            <img src="../profile.png" alt="지정 프로필" />
+                            <span>{userEditData.realname}님 안녕하세요. 반갑습니다.</span>
+                            <UserEdit/>
+                            <button className='logout-button' onClick={logoutHandler}>로그아웃</button>
+                        </div>
+                    </div>
                   </div>
                   <Footer />
                 </>

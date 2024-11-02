@@ -1,34 +1,37 @@
-.my-page{
-    display: grid;
-    
-    .container{
-        border: 1px solid;
-        width: 420px;
-        margin: 0 auto;
-        display: grid;
-
-        img{
-            width: 150px;
-            height: 150px;
+.my-header{
+    //  margin: 0 auto;
+        .my-page{
+            // display: grid;
             margin: 0 auto;
-            margin-top: 10px;
-        }
+            margin-top: 20px;
+        
+            .container{
+                width: 400px;
+                margin: 0 auto;
+                display: grid;
 
-        span{
-            margin: 0 auto;
-            margin-top: 10px;
-            font-size: 25px;
-        }
+                img{
+                    width: 150px;
+                    height: 150px;
+                    margin: 0 auto;
+                    margin-top: 10px;
+                }
 
-        .logout-button{
-            width: 100px;
+                span{
+                    margin: 0 auto;
+                    margin-top: 10px;
+                    font-size: 20px;
+                }
 
-            margin:0 auto;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            background: none;
-            border:none;
+                .logout-button{
+                    width: 100px;
+
+                    margin:0 auto;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    background: none;
+                    border:none;
+                }
+            }
         }
-    }
-    
 }

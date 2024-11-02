@@ -21,7 +21,6 @@ const List = () => {
 
     const [ listData, setListData ] = useState([])
     const [ deleteData, setDeleteData ] = useState([]); 
-    const [ updateData, setUpdateData ] = useState([]); 
     
     //리스트 정보 갖고 오는 코드
     useEffect(() => {

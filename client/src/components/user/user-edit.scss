@@ -1,0 +1,23 @@
+.user-edit{
+    margin: 0 auto;
+
+    button{
+        margin-top: 10px;
+        height: 30px;
+        background-color: #224B5E;
+        border: 1px solid #224B5E;
+        border-radius: 5px;
+        color: #FFFFFF;
+        width: 250px;
+
+        &:hover{
+           background-color: #89CFF0;
+           border: 1px solid #89CFF0;
+           color: #000000;
+        }
+    }
+
+    .modal{
+        width: 400px;
+    }
+}
