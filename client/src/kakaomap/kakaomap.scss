@@ -2,11 +2,9 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    #map {
-        margin-top: 5px;
+    .map-main {
+        padding: 10px;
     }
 
     .address{
@@ -14,56 +12,55 @@
     }
 
     .show-button {
-        margin-top: 5px;
+        position: relative;
         width: 90px;
-        --background: #fffb02;
-        --text: #000000;
-        --font-size: 16px;
-        --duration: .44s;
-        --move-hover: -4px;
-        --shadow: 0 2px 8px -1px rgba(255, 242, 4, 0.341);
-        --shadow-hover: 0 4px 20px -2px fffb02;
-        --font-shadow: var(--font-size);
-        font-family: "Noto Sans", sans-serif;
-        font-weight: 500;
-        line-height: var(--font-size);
-        border-radius: 5px;
-        display: block;
-        outline: none;
-        appearance: none;
-        border: none;
-        text-decoration: none;
-        font-size: 14px;
+        height: 30px;
+        margin-top: 5px;
         margin-right: 6px;
         margin-left: 6px;
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 500;
+        border-radius: 5px;
+        color: #000;
+        background: transparent;
+        border: none;
+        outline: none;
+        appearance: none;
+        font-size: 14px;
+        display: block;
         letter-spacing: .5px;
-        background: var(--background);
-        color: var(--text);
-        box-shadow: var(--shadow);
-        transform: translateY(var(--y)) translateZ(0);
-        transition: transform var(--duration) ease, box-shadow var(--duration) ease;
-        height: 20px;
+        transition: color 0.3s ease;
 
-        div {
-            display: flex;
-            overflow: hidden;
-            text-shadow: 0 var(--font-shadow) 0 var(--text);
+        &:after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            direction: rtl;
+            z-index: -1;
+            box-shadow: 
+                -7px -7px 20px 0px rgba(251, 233, 34, 0.603),
+                -4px -4px 5px 0px rgba(251, 233, 34, 0.603),
+                7px 7px 20px 0px #0002,
+                4px 4px 5px 0px #0001;
+            transition: all 0.3s ease;
+            // border-radius: 5px;
+        }
 
-            span {
-                display: block;
-                backface-visibility: hidden;
-                font-style: normal;
-                transition: transform var(--duration) ease;
-                transform: translateY(var(--m)) translateZ(0);
+        &:hover {
+            color: #000;
+        }
 
-                $i: 1;
-                @while $i < 12 {
-                    &:nth-child(#{$i}) {
-                        transition-delay: $i / 20 + s;
-                    }
-                    $i: $i + 1;
-                }
-            }
+        &:hover:after {
+            left: auto;
+            right: 0;
+            width: 100%;
+        }
+
+        &:active {
+            top: 2px;
         }
     }
 }

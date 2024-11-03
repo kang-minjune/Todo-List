@@ -15,15 +15,6 @@
                 margin-top: 20px;
                 padding: 10px;
                 gap: 5px;
-                position: relative;
-            }
-
-            .map-form-div{
-                .map-div{
-                    display: grid;
-                    margin: 0 auto;  
-                    margin-bottom: 10px;
-                }
             }
             
             
@@ -36,4 +27,9 @@
             }
         }
     }
+}
+
+.map-div{
+    position : absolute;
+    right: 0;
 }

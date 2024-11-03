@@ -120,6 +120,10 @@ const List = () => {
             {user ? (
                 <>
                     <Header />
+                    
+                    <div className='map-div'>
+                                        <Kakaomap />
+                    </div>
                         <div className='list-page'>
                             <div className='form'>
                                 <div className='container'>
@@ -147,9 +151,7 @@ const List = () => {
                                 
                                 <div className='map-form-div'>
                                     <ListForm />
-                                    <div className='map-div'>
-                                        <Kakaomap />
-                                    </div>
+                                    
                                 </div>               
                             </div>
         

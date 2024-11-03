@@ -72,11 +72,11 @@ const Kakaomap = () => {
 
     return (
         <div className='kakaomap'>
-            <button className='show-button' onClick={mapShowHandle}>MAP</button>
+            <button className='show-button' onClick={mapShowHandle}>Location</button>
             {mapShow && (
                 <>
                     <DaumPostcode onComplete={handleComplete} />
-                    <div id="map" style={{ width: '400px', height: '300px' }}></div>
+                    <div id="map" className='map-main' style={{ width: '400px', height: '300px' }}></div>
                 </>
             )}
         </div>
