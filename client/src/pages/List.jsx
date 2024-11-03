@@ -19,6 +19,8 @@ const List = () => {
 
     const { user } = useContext(AuthContext);
 
+    const userId = user?._id;
+
     const [ listData, setListData ] = useState([])
     const [ deleteData, setDeleteData ] = useState([]); 
     
@@ -26,7 +28,9 @@ const List = () => {
     useEffect(() => {
         const listGet = async () => {
             try{
-                const response = await axios.get(`${apiUrl}/list/allread`);
+                const response = await axios.get(`${apiUrl}/list/allread`, {
+                    params: { userid: userId}
+                });
                 console.log(response.data)
                 
                 if(response && response.data){
@@ -38,7 +42,7 @@ const List = () => {
             }
         }
 
-        if (apiUrl) {
+        if (apiUrl && user?._id) {
             listGet();
          } else {
             console.error('API URL is not defined');
@@ -119,7 +123,9 @@ const List = () => {
                             <div className='form'>
                                 <div className='container'>
                                     {/* listData를 map 함수로 순회 */}
-                                    {listData.map((list, index) => (
+                                    {listData
+                                       .filter((list) => list.userid === user._id)
+                                       .map((list, index) => (
                                         <ListEdit 
                                             key={index}
                                             itemId={list._id}
