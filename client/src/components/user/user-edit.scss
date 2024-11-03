@@ -32,19 +32,27 @@
 
     .edit-form{
         display: grid;
-        gap: 10px;
+        // gap: 10px;
         padding: 20px;
+
+        label{
+            margin-top: 10px;
+        }
    
         input{
             height: 30px;
             border: none;
             border-bottom: 1px solid black;
+
+            &:focus{
+                outline: none;
+            }
         }
 
         .buttons{
-            display: flex;
             float:right;
             right: 0;
+            margin-top: 10px;
 
             .commit-btn,
             .close-btn{

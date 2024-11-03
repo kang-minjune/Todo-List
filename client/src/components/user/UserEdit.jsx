@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Modal from 'react-modal';
-
+import { AuthContext } from '../../context/AuthContext';
 import '../user/user-edit.scss';
 
 const UserEdit = (props) => {
+    const { user } = useContext(AuthContext);
     const [editModal, setEditModal] = useState(false);
+
+    const [userEditData, setUserEditData] = useState([]);
 
     const clickModal = () => {
         setEditModal(!editModal);
@@ -20,14 +23,32 @@ const UserEdit = (props) => {
                 onRequestClose={clickModal}
                 contentLabel="Edit User Information"
             >
-                <h2>정보수정</h2>
+                <h2>회원정보 수정</h2>
                 <div className='edit-form'>
-                    <input type="text" />
-                    <input type="text" />
-                    <input type="text" />
-                    <input type="text" />
-                    <input type="text" />
-                    <input type="text" />
+                    
+                        <label>아이디</label>
+                        <input type="text" onChange={(e)=> setUserEditData(e.target.value)}/>
+                    
+                        <label>비밀번호</label>
+                        <input type="text" onChange={(e)=> setUserEditData(e.target.value)}/>
+                    
+                        <label>이름</label>
+                        <input type="text" onChange={(e)=> setUserEditData(e.target.value)}/>
+                    
+                        <label>이메일</label>
+                        <input type="text" onChange={(e)=> setUserEditData(e.target.value)}/>
+                    
+                        <label>주소</label>
+                        <input type="text" onChange={(e)=> setUserEditData(e.target.value)}/>
+                    
+                        <label>상세주소</label>
+                        <input type="text" onChange={(e)=> setUserEditData(e.target.value)}/>
+                    
+                        <label>아이디</label>
+                        <input type="text" onChange={(e)=> setUserEditData(e.target.value)}/>
+                    
+                        <label>아이디</label>
+                        <input type="text" onChange={(e)=> setUserEditData(e.target.value)}/>
 
                     <div className='buttons'>
                         <button className='commit-btn'>저장</button>

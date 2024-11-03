@@ -14,7 +14,7 @@ import '../styles/mypage.scss';
 const Mypage = () => {
     const apiUrl = process.env.REACT_APP_API_URL;
     const { user } = useContext(AuthContext);
-    const [userEditData, setUserEditData] = useState([]);
+    const [userInfo, setUserInfo] = useState([]);
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const Mypage = () => {
                 try {
                     const response = await axios.get(`${apiUrl}/user/read/${user._id}`);
                     if (response && response.data) {
-                        setUserEditData(response.data);
+                        setUserInfo(response.data);
                     }
                 } catch (err) {
                     console.error(err);
@@ -58,7 +58,7 @@ const Mypage = () => {
                         <div className='container'>
                             <div className='form1'>
                                 <img src="../profile.png" alt="지정 프로필" />
-                                <span>{userEditData.realname}님 안녕하세요</span>
+                                <span>{userInfo.realname}님 안녕하세요</span>
                             </div>
                             <div className='form2'>
                                 <UserEdit/>

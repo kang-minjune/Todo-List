@@ -7,7 +7,7 @@
         .form{
             display: grid;
             margin: 0 auto;
-
+            
             .container{
                 border: none;
                 display: grid;
@@ -15,6 +15,24 @@
                 margin-top: 20px;
                 padding: 10px;
                 gap: 5px;
+                position: relative;
+            }
+
+            .map-form-div{
+                .map-div{
+                    display: grid;
+                    margin: 0 auto;  
+                    margin-bottom: 10px;
+                }
+            }
+            
+            
+            .form-kakaomap{
+                display: flexbox;
+            }
+
+            .map-form-div{
+                display: flexbox;
             }
         }
     }

@@ -56,21 +56,7 @@
                     }
                 }
             }
-            &:hover {
-                --y: var(--move-hover);
-                --shadow: var(--shadow-hover);
-                span {
-                    --m: calc(var(--font-size) * -1);
-                }
-            }
-            &.reverse {
-                --font-shadow: calc(var(--font-size) * -1);
-                &:hover {
-                    span {
-                        --m: calc(var(--font-size));
-                    }
-                }
-            }
+
         }   
 } 
 
@@ -120,7 +106,7 @@
 
         .post-memo-input{
                 width: 395px;
-                height: 250px;    
+                height: 150px;    
                 text-align:left ;
                 font-size: 15px;
                 margin: 0 auto;

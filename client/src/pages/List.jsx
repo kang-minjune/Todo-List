@@ -6,6 +6,7 @@ import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import ListEdit from '../components/list/ListEdit';
 import ListForm from '../components/list/ListForm';
+import Kakaomap from '../kakaomap/Kakaomap';
 
 import { AuthContext } from '../context/AuthContext';
 
@@ -143,7 +144,16 @@ const List = () => {
                                     ))}
                                     
                                 </div>
-                                <ListForm />
+                                
+                                <div className='map-form-div'>
+                                    <ListForm />
+                                    <div className='map-div'>
+                                        <Kakaomap />
+                                    </div>
+                                </div>
+                                
+
+                                
                             </div>
         
                         </div>

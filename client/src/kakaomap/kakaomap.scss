@@ -1,0 +1,65 @@
+.kakaomap {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    #map {
+        margin-top: 5px;
+    }
+
+    .show-button {
+        margin-top: 5px;
+        width: 90px;
+        --background: #fffb02;
+        --text: #000000;
+        --font-size: 16px;
+        --duration: .44s;
+        --move-hover: -4px;
+        --shadow: 0 2px 8px -1px rgba(255, 242, 4, 0.341);
+        --shadow-hover: 0 4px 20px -2px fffb02;
+        --font-shadow: var(--font-size);
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 500;
+        line-height: var(--font-size);
+        border-radius: 5px;
+        display: block;
+        outline: none;
+        appearance: none;
+        border: none;
+        text-decoration: none;
+        font-size: 14px;
+        margin-right: 6px;
+        margin-left: 6px;
+        letter-spacing: .5px;
+        background: var(--background);
+        color: var(--text);
+        box-shadow: var(--shadow);
+        transform: translateY(var(--y)) translateZ(0);
+        transition: transform var(--duration) ease, box-shadow var(--duration) ease;
+        height: 20px;
+
+        div {
+            display: flex;
+            overflow: hidden;
+            text-shadow: 0 var(--font-shadow) 0 var(--text);
+
+            span {
+                display: block;
+                backface-visibility: hidden;
+                font-style: normal;
+                transition: transform var(--duration) ease;
+                transform: translateY(var(--m)) translateZ(0);
+
+                $i: 1;
+                @while $i < 12 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: $i / 20 + s;
+                    }
+                    $i: $i + 1;
+                }
+            }
+        }
+    }
+}
