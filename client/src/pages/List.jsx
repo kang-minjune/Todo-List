@@ -150,10 +150,7 @@ const List = () => {
                                     <div className='map-div'>
                                         <Kakaomap />
                                     </div>
-                                </div>
-                                
-
-                                
+                                </div>               
                             </div>
         
                         </div>

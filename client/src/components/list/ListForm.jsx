@@ -68,7 +68,7 @@ const ListForm = () => {
         <div className='list-form'>
             <div className='list-add-btn'>
                 <button onClick={() => setAddListModal(true)}>
-                    리스트 추가
+                    PLUS
                 </button>
             </div>
 
