@@ -39,7 +39,8 @@ const Kakaomap = () => {
         if (!mapShow) return;
 
         const script = document.createElement('script');
-        script.src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=02812c8c99fd6aa576e5dbf72f3b5e4b&autoload=false&libraries=services";
+        console.log(process.env.REACT_APP_KAKAO_MAP_API_KEY);
+        script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAO_MAP_API_KEY}&autoload=false&libraries=services`;
         script.async = true;
 
         script.onload = () => {
