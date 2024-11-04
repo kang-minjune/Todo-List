@@ -11,4 +11,6 @@
 /api/.env
 /client/.env
 
+/client/src/kakaomap/Kakaomap.jsx
+
 /package-lock.json
