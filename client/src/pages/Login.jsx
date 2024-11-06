@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -20,12 +20,16 @@ import '../styles/login.scss';
 
 const Login = () => {
 
+  const inputFocus = useRef();
+
   const [credentials, setCredentials] = useState({
      username: '',
      password: '',
   });
   
-  const navigate = useNavigate();
+  useEffect(() => {
+    inputFocus.current.focus();
+  }, [])
 
   const loginClickHandler = async () => {
     console.log(credentials);
@@ -79,6 +83,7 @@ const Login = () => {
                         inputPlaceHolder="아이디"
                         inputOnChange={loginHandleChange}
                         id={"username"}
+                        inputLoginRef={inputFocus}
                       />
 
 

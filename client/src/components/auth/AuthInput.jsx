@@ -16,12 +16,12 @@ function AuthInput({
               inputOnChange,
               id,
               showAuthIcon = true,
-              authOnKeyDown
+              authOnKeyDown,
+              inputLoginRef
     }) 
     {
     
       const [showPassword, setShowPassword] = useState(true);
-      const inputLoginRef = useRef();
 
       const showPasswordHandler = () => {
           setShowPassword(!showPassword);
