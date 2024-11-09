@@ -122,7 +122,7 @@ const List = () => {
                     <Header />
                     
                     <div className='map-div'>
-                                        <Kakaomap />
+                             <Kakaomap />
                     </div>
                         <div className='list-page'>
                             <div className='form'>

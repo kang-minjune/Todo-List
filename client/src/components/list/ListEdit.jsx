@@ -13,8 +13,7 @@ import '../list/list-edit.scss';
  * @returns 
  */
 const ListEdit = ({ 
-        itemId, 
-        itemOnchange, 
+        itemId,
         listItem,
         memo,
         createdate,

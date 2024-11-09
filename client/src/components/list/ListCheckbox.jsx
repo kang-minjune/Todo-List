@@ -19,12 +19,9 @@ const ListCheckbox = () => {
 
     const postCheck = async (list) => {
         const listId = list._id;
-        // 버튼 상태 반전
         const checkState = list.check; 
         setCheckButton(!checkButton);
         setCheckData(checkState);
-        // 서버로 전송할 데이터 준비
-       
 
         try {    
             const response = await axios.put(`${apiUrl}/list/update/${listId}`, updatedCheckData);
@@ -38,6 +35,7 @@ const ListCheckbox = () => {
         <div className='list-checkbox'>
             <button 
                 type='button'
+                // id={checkboxId}
                 className='check-button' 
                 onClick={postCheck}
             >
