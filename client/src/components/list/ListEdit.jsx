@@ -78,10 +78,17 @@ const ListEdit = ({
                             onChange={(e) => setItemEdit(e.target.value)} // 변경 사항 관리
                         />
 
-                        <div className='datepick-view'>                       
-                            <span id='createdate'>{formatDate(createdate)}</span>
-                            <span>~</span>
-                            <span id='enddate'>{formatDate(enddate)}</span>
+                        <div className='datepick-view'>
+                            <div className='start-date'>
+                                <span>시작</span>                    
+                                <span id='createdate'>{formatDate(createdate)}</span>
+                            </div>
+
+                            <div className='end-date'>
+                                <span>종료</span>  
+                                <span id='enddate'>{formatDate(enddate)}</span>
+                            </div>
+                            
                         </div>
 
                         <div className='datepick-edit'>
