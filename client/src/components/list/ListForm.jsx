@@ -74,17 +74,21 @@ const ListForm = () => {
 
             {addListModal && (
                 <div className='list-create-form'>
-                    <input 
+                    
+                    <div className='item-btn'>
+                         <input 
                           type="text" 
                           id="listitem"
                           value={postData.listitem}
                           onChange={postHandle}
                           className='post-item-input'
                           placeholder='오늘의 투두는?'
-                    />
-                    
-                    <button className='post-btn' onClick={listPost}>추가</button>
-                    <button onClick={handleClose}>닫기</button>
+                        />
+                        
+                        <button className='post-btn' onClick={listPost}>추가</button>
+                        <button onClick={handleClose}>닫기</button>
+                    </div>
+                   
 
                     <div className='datepick-emoji'>
                         <div className='datepick'>
@@ -94,15 +98,15 @@ const ListForm = () => {
                                    id='createdate' 
                                    value={postData.createdate} 
                                    onChange={postHandle}
-                                   style={{width:'150px', marginLeft:'5px'}}/>
+                                   style={{width:'9.175rem', marginLeft:'5px'}}/>
 
-                            <label htmlFor='enddate' style={{marginLeft:'10px'}}>종료</label>
+                            <label htmlFor='enddate' style={{marginLeft:'0.625rem'}}>종료</label>
                             <input 
                                    type="date" 
                                    id='enddate' 
                                    value={postData.enddate} 
                                    onChange={postHandle}
-                                   style={{width:'150px', marginLeft:'5px'}} /> 
+                                   style={{width:'9.175rem', marginLeft:'0.625rem'}} /> 
                         </div>
 
                         <div className='emoji-container'>
