@@ -34,17 +34,17 @@ export const listGet = async (req, res, next) => {
     }
 }
 
-//모든 리스트 조회 함수
-export const listGetAll = async(req, res, next) => {
-    try{
-        const itemListAll = await List.find(req.body);
-        console.log(itemListAll)
-        res.status(200).json(itemListAll);
-    } catch(err){
-        console.log(err);
-        next(err);
-    }
-}
+// //모든 리스트 조회 함수
+// export const listGetAll = async(req, res, next) => {
+//     try{
+//         const itemListAll = await List.find(req.body);
+//         console.log(itemListAll)
+//         res.status(200).json(itemListAll);
+//     } catch(err){
+//         console.log(err);
+//         next(err);
+//     }
+// }
 
 //리스트 수정 함수
 export const listUpdate = async (req, res, next) => {

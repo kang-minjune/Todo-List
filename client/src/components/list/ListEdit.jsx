@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import ListCheckbox from './ListCheckbox';
 
+import { formatDate } from '../../format/formating';
+
 import '../list/list-edit.scss';
 
 /**
@@ -76,22 +78,29 @@ const ListEdit = ({
                             onChange={(e) => setItemEdit(e.target.value)} // 변경 사항 관리
                         />
 
+                        <div className='datepick-view'>                       
+                            <span id='createdate'>{formatDate(createdate)}</span>
+                            <span>~</span>
+                            <span id='enddate'>{formatDate(enddate)}</span>
+                        </div>
+
                         <div className='datepick-edit'>
-                            <label htmlFor='createdate' style={{marginLeft:'10px'}}>시작</label>
+                            
                             <input 
-                                   type="date" 
+                                   type="datetime-local" 
                                    id='createdate' 
                                    value={createdateEdit} 
                                    onChange={(e) => setCreatedateEdit(e.target.value)}
-                                   style={{width:'150px', marginLeft:'5px'}}/>
+                                   style={{width:'165px'}}/>
 
-                            <label htmlFor='enddate' style={{marginLeft:'10px'}}>종료</label>
+                            <span>~</span> 
+
                             <input 
-                                   type="date" 
+                                   type="datetime-local" 
                                    id='enddate' 
                                    value={enddateEdit} 
                                    onChange={(e) => setEnddateEdit(e.target.value)}
-                                   style={{width:'150px', marginLeft:'5px'}} /> 
+                                   style={{width:'165px'}} /> 
                         </div>
 
                         <input 

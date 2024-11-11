@@ -7,12 +7,18 @@
         .form{
             display: grid;
             margin: 0 auto;
+
+            .today-list{
+                margin: 0 auto;
+                padding : 10px;
+                font-size: 25px;
+            }
             
             .container{
                 border: none;
                 display: grid;
                 margin: 0 auto;
-                margin-top: 20px;
+                margin-top: 10px;
                 padding: 10px;
                 gap: 5px;
             }
