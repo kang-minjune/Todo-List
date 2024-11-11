@@ -1,5 +1,6 @@
 import { set } from 'mongoose';
 import List from '../models/List.js'
+import User from '../models/User.js'
 import { ObjectId } from 'mongodb';
 
 //리스트 추가 함수
@@ -17,16 +18,23 @@ export const listAdd = async (req, res, next) => {
 
 //리스트 조회 함수
 export const listGet = async (req, res, next) => {
-    try{
-        const itemList = await List.findById(req.params.id);
-        console.log(itemList)
-        res.status(200).json(itemList);
+    try {
+        const itemList = await List.find({ userid: req.params.id }); 
+        
+        const userObjectId = await User.findById(req.params.id);
+        
+        if (itemList && userObjectId) {
+            res.status(200).json(itemList);
+        } else {
+            res.status(404).json({ message: "해당 id에 해당하는 리스트를 찾을 수 없습니다." });
+        }
     } catch(err) {
-        console.log(err)
-        next(err);
+        console.error(err); 
+        next(err); 
     }
 }
 
+//모든 리스트 조회 함수
 export const listGetAll = async(req, res, next) => {
     try{
         const itemListAll = await List.find(req.body);

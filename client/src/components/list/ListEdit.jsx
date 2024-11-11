@@ -41,7 +41,9 @@ const ListEdit = ({
     return (
         <div className='item-form'>
             <span id={itemId}>{itemEdit}</span>
+
             <ListCheckbox />
+
             <button
                 type='button'
                 className='edit-button'

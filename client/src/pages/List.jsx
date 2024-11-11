@@ -29,7 +29,7 @@ const List = () => {
     useEffect(() => {
         const listGet = async () => {
             try{
-                const response = await axios.get(`${apiUrl}/list/allread`, {
+                const response = await axios.get(`${apiUrl}/list/read/${userId}`, {
                     params: { userid: userId}
                 });
                 console.log(response.data)
@@ -72,6 +72,7 @@ const List = () => {
         } 
     };
 
+    //리스트 업데이트 코드
     const listUpdate = async (
                      itemId, 
                      updatedItem, 
@@ -129,7 +130,6 @@ const List = () => {
                                 <div className='container'>
                                     {/* listData를 map 함수로 순회 */}
                                     {listData
-                                       .filter((list) => list.userid === user._id)
                                        .map((list, index) => (
                                         <ListEdit 
                                             key={index}
