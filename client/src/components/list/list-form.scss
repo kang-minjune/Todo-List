@@ -5,14 +5,14 @@
         margin: 0 auto;
         margin-top: 10px;
         display: grid;
-        width: 100px;
+        width: 6.25rem;
         
         
         //리스트 추가버튼 CSS
         button{
             --background: #000000;
             --text: #fff;
-            --font-size: 16px;
+            --font-size: 1rem;
             --duration: .44s;
             --move-hover: -4px;
             --shadow: 0 2px 8px -1px #{rgba(#000000, .32)};
@@ -27,7 +27,7 @@
             appearance: none;
             border: none;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 0.875rem;
             margin-right: 6px;
             margin-left: 6px;
             letter-spacing: .5px;
@@ -36,7 +36,7 @@
             box-shadow: var(--shadow);
             transform: translateY(var(--y)) translateZ(0);
             transition: transform var(--duration) ease, box-shadow var(--duration) ease;
-            height: 20px;
+            height: 1.25rem;
             div {
                 display: flex;
                 overflow: hidden;
@@ -63,7 +63,7 @@
 .list-create-form {
 
     margin: 0 auto;
-    width: 400px;
+    width: 25rem;
     margin-top: 10px;
 
         .datepicker{
@@ -72,7 +72,7 @@
             margin-bottom: 10px;
 
             span{
-                font-size: 25px;
+                font-size: 1.5625rem;
             }
         }
         
@@ -95,7 +95,7 @@
         }
 
         .post-item-input{
-            width: 305px;
+            width: 19.0625rem;
             border: none;
             border-bottom: 1px solid black;
 
@@ -105,11 +105,11 @@
         }
 
         .post-memo-input{
-                width: 395px;
-                height: 150px;    
-                text-align:left ;
-                font-size: 15px;
-                margin: 0 auto;
+            width: 24.6875rem;
+            height: 9.375rem;    
+            text-align:left ;
+            font-size: 0.9375rem;
+            margin: 0 auto;
 
                 &:focus{
                     outline: none;

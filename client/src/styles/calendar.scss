@@ -10,7 +10,7 @@
 // }
 
 .react-calendar {
-    width: 1200px;
+    width: 75rem;
     max-width: 100%;
     background: white;
     // border: 1px solid #a0a096;
@@ -20,7 +20,7 @@
   }
   
   .react-calendar--doubleView {
-    width: 700px;
+    width: 43.75rem;
   }
   
   .react-calendar--doubleView .react-calendar__viewContainer {
@@ -54,12 +54,12 @@
   
   .react-calendar__navigation {
     display: flex;
-    height: 44px;
+    height: 2.75rem;
     margin-bottom: 1em;
   }
   
   .react-calendar__navigation button {
-    min-width: 44px;
+    min-width: 2.75rem;
     background: none;
   }
   
@@ -111,11 +111,11 @@
   
   .react-calendar__tile {
     max-width: 100%;
-    height: 115px;
+    height: 7.1875rem;
     background: none;
     text-align: center;
     font: inherit;
-    font-size: 12px;
+    font-size: 0.75rem; /* rem 단위 */
 
     display: flex; /* 플렉스박스 활성화 */
     justify-content: center; /* 수평 중앙 정렬 */

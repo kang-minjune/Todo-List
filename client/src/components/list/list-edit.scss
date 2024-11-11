@@ -7,7 +7,7 @@
     span{
         width: 100%;
         border: none;
-        font-size: 15px;
+        font-size: 0.9375rem;
         border-bottom: 0.75px solid black ;
     }
 
@@ -23,23 +23,23 @@
     }    
 
     .edit-button{
-        width: 50px;
-        height: 20px;
+        width: 3.125rem;
+        height: 1.25rem;
         background-color: #3ea3de;
         border: 1px solid #3ea3de;  
         color: #FFFFFF;  
         border-radius: 5px;
-        font-size: 12px;
+        font-size: 0.75rem;
         margin-left: 3px;
     }
     .delete-button{
-        width: 50px;
-        height: 20px;
+        width: 3.125rem;
+        height: 1.25rem;
         background-color: #de493e;
         border: 1px solid #de493e;  
         color: #FFFFFF;   
         border-radius: 5px;
-        font-size: 12px;
+        font-size: 0.75rem;
         margin-left: 3px;
     }
 
@@ -65,7 +65,7 @@
     width: 100%;
     margin-bottom: 10px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
 
 
         &:hover { 
@@ -84,7 +84,7 @@
         width: 100%;
         height: 300px;
         border-radius: 5px;
-        font-size: 16px;
+        font-size: 1rem;
             &:hover { 
                 border: 2px solid #224B5E;  
                 border-radius: 5px;
@@ -108,7 +108,7 @@
 .datepick-view{
         display: flex;
         justify-content: center;
-        font-size: 14px;
+        font-size: 0.875rem;
         gap: 55px;
         margin-bottom: 10px;
 
