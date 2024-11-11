@@ -119,8 +119,13 @@
 }
 
 .list-edit-modal{
-    width: 400px;
+    width: 500px;
+    height: 200px;
     margin: 0 auto;
-    margin-top: 13%;
-    margin-bottom: 13%;
+    margin-top: 10%;
+
+    .modal{
+        background-color: #FFFFFF;
+        padding: 15px;
+    }
 }
