@@ -94,7 +94,7 @@ const ListForm = () => {
                         <div className='datepick'>
                             <label htmlFor='createdate' style={{marginLeft:'10px'}}>시작</label>
                             <input 
-                                   type="date" 
+                                   type="datetime-local" 
                                    id='createdate' 
                                    value={postData.createdate} 
                                    onChange={postHandle}
@@ -102,7 +102,7 @@ const ListForm = () => {
 
                             <label htmlFor='enddate' style={{marginLeft:'0.625rem'}}>종료</label>
                             <input 
-                                   type="date" 
+                                   type="datetime-local" 
                                    id='enddate' 
                                    value={postData.enddate} 
                                    onChange={postHandle}

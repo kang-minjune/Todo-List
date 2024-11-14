@@ -127,7 +127,7 @@ const List = () => {
                     </div>
                         <div className='list-page'>
                             <div className='form'>
-                                <span className='today-list'>TODAY LIST</span>
+                                {/* <span className='today-list'>TODAY LIST</span> */}
                                 <div className='container'>
                                     {/* listData를 map 함수로 순회 */}
                                     {listData

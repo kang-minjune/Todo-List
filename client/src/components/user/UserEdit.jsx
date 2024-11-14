@@ -39,6 +39,7 @@ const UserEdit = () => {
                 setUserEditData(response.data);
            }
            alert('회원정보 수정이 완료되었습니다.');
+           window.location.replace('/mypage');
         } catch (err) {
             console.error('유저 업데이트 오류내용: ', err)
         }

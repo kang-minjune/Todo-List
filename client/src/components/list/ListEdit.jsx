@@ -110,10 +110,10 @@ const ListEdit = ({
                                    style={{width:'165px'}} /> 
                         </div>
 
-                        <input 
+                        <textarea 
                             id='memo'
                             className='memo-edit-input'
-                            type='text'
+                            // type='text'
                             value={memoEdit}
                             onChange={(e) => setMemoEdit(e.target.value)} // 메모 변경 사항 관리
                         />
