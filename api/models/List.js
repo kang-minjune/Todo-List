@@ -22,10 +22,6 @@ const ListSchema = new mongoose.Schema(
             type: Date,
             require: true,
         },
-        updatedate:{
-            type: Date,
-            require: false,
-        },
         emoji : {
             type: String,
             requireL: false,
