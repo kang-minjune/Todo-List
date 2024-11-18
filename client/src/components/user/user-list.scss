@@ -1,0 +1,30 @@
+.user-list{
+    margin: 0 auto;
+    padding: 20px;
+
+    button {
+        margin-top: 10px;
+        height: 120px; 
+        width: 120px; 
+        background: linear-gradient(135deg, #52bdb8, #c2cead); 
+        border: none;
+        border-radius: 12px; 
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+
+        &:hover {
+            transform: scale(1.1); 
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
+            background: linear-gradient(135deg, #c2cead, #52bdb8); 
+        }
+
+        &:active {
+            transform: scale(0.95);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+    }
+}

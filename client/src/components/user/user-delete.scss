@@ -1,0 +1,93 @@
+.user-delete{
+    margin: 0 auto;
+    padding: 20px;
+
+    button {
+        margin-top: 10px;
+        height: 120px; 
+        width: 120px; 
+        background: linear-gradient(135deg, #cb1139, #ddb987); 
+        border: none;
+        border-radius: 12px; 
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+
+        &:hover {
+            transform: scale(1.1); 
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
+            background: linear-gradient(135deg, #ddb987, #cb1139); 
+        }
+
+        &:active {
+            transform: scale(0.95);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.delete-modal{
+    width: 450px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+
+    h2{
+        text-align: center;
+        margin: 20px 0;
+        font-size: 20px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    p{
+        margin: 20px 0;
+        font-size: 14px;
+        padding: 10px;
+        color: #565454;
+        font-weight: bold;
+    }
+
+    .delete-close-btn{
+        display: flex; 
+        justify-content: flex-end; 
+        margin-top: 20px;
+
+            .delete-btn,
+            .close-btn {
+                padding: 8px 16px; 
+                border-radius: 6px;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease;
+                margin: 10px;
+
+                &.delete-btn {
+                    background-color: #ff0019;
+                    color: #fff;
+                    border: none;
+
+                    &:hover {
+                        background-color: #a43445;
+                    }
+                }
+
+                &.close-btn {
+                    background-color: #e0e0e0;
+                    color: #333;
+                    border: none;
+                    
+                    &:hover {
+                        background-color: #d6d6d6;
+                    }
+                }
+            }
+     }
+}

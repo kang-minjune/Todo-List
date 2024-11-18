@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { AuthContext } from '../../context/AuthContext';
-import '../user/user-edit.scss';
 import axios from 'axios';
+
+import '../user/user-edit.scss';
 
 const UserEdit = () => {
     const { user } = useContext(AuthContext);
@@ -45,7 +46,7 @@ const UserEdit = () => {
         }
     }
 
-    const clickModal = () => {
+    const editModalHandler = () => {
         setEditModal(!editModal);
     };
 
@@ -59,12 +60,12 @@ const UserEdit = () => {
 
     return (
         <div className='user-edit'>
-            <button type='button' onClick={clickModal}>회원정보 수정</button>
+            <button type='button' onClick={editModalHandler}>회원정보 수정</button>
 
             <Modal
                 isOpen={editModal}
-                className='modal'
-                onRequestClose={clickModal}
+                className='edit-modal'
+                onRequestClose={editModalHandler}
                 contentLabel="Edit User Information"
             >
                 <h2>회원정보 수정</h2>
@@ -134,9 +135,9 @@ const UserEdit = () => {
                         onChange={handleInputChange}
                     />
                     
-                    <div className='buttons'>
+                    <div className='commit-close-btn'>
                         <button className='commit-btn' onClick={userUpdate}>저장</button>
-                        <button className='close-btn' onClick={clickModal}>닫기</button>
+                        <button className='close-btn' onClick={editModalHandler}>닫기</button>
                     </div>
                 </div>
             </Modal>

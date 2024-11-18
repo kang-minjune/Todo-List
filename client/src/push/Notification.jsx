@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 const requestNotificationPermission = () => {
     if (Notification.permission === "default") {
         Notification.requestPermission().then(permission => {
+            console.log("Notification.permission: ", Notification.permission);
             if (permission !== "granted") {
                 alert("알림을 허용해주셔야 기능이 동작합니다.");
             }
@@ -10,8 +11,12 @@ const requestNotificationPermission = () => {
     }
 };
 
+let notificationTimeout;
+
 const scheduleNotification = (todo) => {
     if (!todo.dueDate) return; // dueDate가 없는 경우 반환
+
+    clearTimeout(notificationTimeout); // 이전 예약 취소
 
     const timeUntilNotification = new Date(todo.dueDate).getTime() - new Date().getTime() - 10 * 60 * 1000;
 
@@ -39,7 +44,7 @@ const Notification = ({ todo }) => {
         if (todo) {
             scheduleNotification(todo);
         }
-    }, [todo]);
+    }, [todo?.dueDate]);
 
     return null;
 };

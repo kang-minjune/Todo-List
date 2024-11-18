@@ -4,6 +4,9 @@ import Footer from '../components/footer/Footer';
 import Login from './Login';
 
 import UserEdit from '../components/user/UserEdit';
+import Maual from '../components/user/Maual';
+import UserList from '../components/user/UserList';
+import UserDelete from '../components/user/UserDelete';
 
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
@@ -61,7 +64,14 @@ const Mypage = () => {
                                 <span>{userInfo.realname}님 안녕하세요</span>
                             </div>
                             <div className='form2'>
-                                <UserEdit/>
+                                <div className='contents'>
+                                     <Maual/>
+                                     <UserEdit/>
+                                </div>
+                                <div className='contents'>
+                                     <UserList/>
+                                     <UserDelete/>
+                                </div>
                                 <button className='logout-button' onClick={logoutHandler}>로그아웃</button>
                             </div>
                             

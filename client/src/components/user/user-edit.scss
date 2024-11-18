@@ -1,66 +1,114 @@
 .user-edit{
     margin: 0 auto;
+    padding: 20px;
 
-    button{
+    button {
         margin-top: 10px;
-        height: 30px;
-        background-color: #224B5E;
-        border: 1px solid #224B5E;
-        border-radius: 5px;
-        color: #FFFFFF;
-        width: 370px;
+        height: 120px; // 버튼 크기를 약간 줄임
+        width: 120px; 
+        background: linear-gradient(135deg, #bf11cb, #97b1df); // 그라디언트 배경
+        border: none; // 테두리 제거
+        border-radius: 12px; // 더 부드러운 테두리
+        color: #fff; // 글씨는 흰색
+        font-size: 16px; // 글씨 크기 조정
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // 버튼에 그림자 추가
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; // 애니메이션 추가
 
-        &:hover{
-           background-color: #89CFF0;
-           border: 1px solid #89CFF0;
-           color: #000000;
+        &:hover {
+            transform: scale(1.1); // 버튼 크기 확대
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); // 호버 시 그림자 확대
+            background: linear-gradient(135deg, #97b1df, #bf11cb); // 반대 그라디언트
+        }
+
+        &:active {
+            transform: scale(0.95); // 클릭 시 살짝 작아짐
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); // 클릭 시 그림자 축소
         }
     }
 }
 
-.modal{
-    width: 400px;
-    margin: 0 auto;
-    background-color: rgb(255, 255, 255);border: 0.75px solid #dfdfdf;
-    
-    h2{
-        margin: 0 auto;
+.edit-modal {
+    width: 450px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+
+    h2 {
         text-align: center;
-        margin-top: 10px;
+        margin: 20px 0;
+        font-size: 20px;
+        color: #333; // 글씨 색상 어둡게
+        font-weight: bold;
     }
 
-    .edit-form{
-        display: grid;
-        // gap: 10px;
+    .edit-form {
+        display: flex;
+        flex-direction: column; // 가로에서 세로로 변경
         padding: 20px;
+        gap: 15px; // 요소 간격 추가
 
-        label{
-            margin-top: 10px;
+        label {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555; // 텍스트 색상 약간 연하게
         }
-   
-        input{
-            height: 30px;
-            border: none;
-            border-bottom: 1px solid black;
 
-            &:focus{
+        input {
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 6px; // 부드러운 곡선
+            padding: 0 10px;
+            font-size: 14px;
+            color: #333;
+
+            &:focus {
+                border: 1px solid #007bff; // 포커스 시 강조
+                box-shadow: 0 0 4px rgba(0, 123, 255, 0.3); // 포커스 시 부드러운 그림자
                 outline: none;
             }
         }
 
-        .buttons{
-            float:right;
-            right: 0;
-            margin-top: 10px;
+        .commit-close-btn {
+            display: flex; // 버튼을 가로로 나열
+            justify-content: flex-end; // 오른쪽 정렬
+            margin-top: 20px;
 
             .commit-btn,
-            .close-btn{
-                float: right;
-                border: none;
-                background: none;
+            .close-btn {
+                padding: 8px 16px; // 버튼 크기 조정
+                border-radius: 6px; // 부드러운 곡선
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease;
+
+                &.commit-btn {
+                    background-color: #007bff;
+                    color: #fff;
+                    border: none;
+
+                    &:hover {
+                        background-color: #0056b3;
+                    }
+                }
+
+                &.close-btn {
+                    background-color: #e0e0e0;
+                    color: #333;
+                    border: none;
+                    margin-left: 10px;
+
+                    &:hover {
+                        background-color: #d6d6d6;
+                    }
+                }
             }
         }
     }
-        
 }
 

@@ -22,13 +22,17 @@
 
                     span{
                         margin: 0 auto;
-                        margin-top: 10px;
-                        font-size: 1rem;
+                        margin-top: 15px;
+                        font-size: 1.265rem;
                     }
                 }
 
                 .form2 {
                     display: grid;
+
+                    .contents{
+                        display: flex;
+                    }
                     
                     .logout-button{
                         width: 100%;

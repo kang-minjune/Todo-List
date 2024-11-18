@@ -172,12 +172,9 @@
 
   
   .calender-container {
-    position: relative;
-    // padding: 5px;
-
     .react-calendar__tile {
-        position: relative;
         display: grid;
+        
 
         p {
             font-size: 0.8rem;
