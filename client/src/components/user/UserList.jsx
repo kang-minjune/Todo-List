@@ -8,10 +8,11 @@ import '../user/user-list.scss';
 
 const UserList = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
     
     const apiUrl = process.env.REACT_APP_API_URL;
-    console.log(apiUrl);
+
+    const [myListData, setMyListData] = useState([]);
+
     const [myListModal, setMyListModal] = useState(false);
 
     const myListModalHandler = () => { 
@@ -24,13 +25,16 @@ const UserList = () => {
                const userId = user?._id;
                const response = await axios.get(`${apiUrl}/list/read/${userId}`)
                console.log(response.data);
+               if(response && response.data){
+                  setMyListData(response.data);
+               }
+               console.log(myListData);
             } catch(err) {
                 console.error(err);
             }
         }
-
         myListGet();
-    }, [apiUrl])
+    }, [apiUrl]);
 
     
     return (
@@ -42,6 +46,9 @@ const UserList = () => {
                 onRequestClose={myListModalHandler}
                 contentLabel="Edit User Information"
             >
+                {myListData.map((mylist, index)=> (
+                    <span key={index}>{mylist.listitem}</span>
+                ))}
             </Modal>
 
         </div>
