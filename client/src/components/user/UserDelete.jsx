@@ -6,12 +6,11 @@ import axios from 'axios';
 
 const UserDelete = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
 
     const apiUrl = process.env.REACT_APP_API_URL;
-    console.log(apiUrl);
 
     const userId = user?._id;
+    
     const [ deleteModal, setDeleteModal ] = useState(false);
 
     const [ deleteData, setDeleteData ] = useState(null);
