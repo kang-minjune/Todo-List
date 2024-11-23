@@ -4,7 +4,7 @@ import Footer from '../components/footer/Footer';
 import Login from './Login';
 
 import UserEdit from '../components/user/UserEdit';
-import Maual from '../components/user/Maual';
+import UserMaual from '../components/user/UserMaual';
 import UserList from '../components/user/UserList';
 import UserDelete from '../components/user/UserDelete';
 
@@ -65,7 +65,7 @@ const Mypage = () => {
                             </div>
                             <div className='form2'>
                                 <div className='contents'>
-                                     <Maual/>
+                                     <UserMaual/>
                                      <UserEdit/>
                                 </div>
                                 <div className='contents'>

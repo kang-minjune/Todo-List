@@ -16,11 +16,6 @@ const ListCheckbox = () => {
 
     const userId = user?._id;
 
-    const updatedCheckData = {
-        ...checkData,
-        check: !checkButton
-    };
-
     useEffect(() => {
         const listData = async() => {
             try{
@@ -28,7 +23,6 @@ const ListCheckbox = () => {
                       userid: userId
                })
                setCheckData(listData);
-               console.log(listData.data)
             } catch (err){
                 console.err(err)
             }

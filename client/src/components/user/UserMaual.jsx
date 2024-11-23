@@ -2,9 +2,9 @@ import React,{ useState } from 'react';
 
 import Modal from 'react-modal';
 
-import '../user/manual.scss';
+import '../user/user-manual.scss';
 
-const Maual = () => {
+const UserMaual = () => {
 
     const [ manualModal, setManualModal ] = useState(false);
 
@@ -40,4 +40,4 @@ const Maual = () => {
     );
 };
 
-export default Maual;
+export default UserMaual;

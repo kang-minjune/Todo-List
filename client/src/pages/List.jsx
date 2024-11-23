@@ -7,7 +7,6 @@ import Header from '../components/header/Header';
 import ListEdit from '../components/list/ListEdit';
 import ListForm from '../components/list/ListForm';
 import Kakaomap from '../kakaomap/Kakaomap';
-import Notification from '../push/Notification';
 
 import { AuthContext } from '../context/AuthContext';
 
@@ -155,9 +154,6 @@ const List = () => {
                                     <ListForm />    
                                 </div>  
                                 
-                                {listData.map((todo, index) => (
-                                    <Notification key={index} todo={todo} />
-                                ))}
                                           
                             </div>
         
