@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-
 import Login from './Login';
-
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import ListEdit from '../components/list/ListEdit';
 import ListForm from '../components/list/ListForm';
 import Kakaomap from '../kakaomap/Kakaomap';
-
+import Notification from 'react-notification';
 import { AuthContext } from '../context/AuthContext';
 
 import axios from 'axios';
@@ -22,8 +20,9 @@ const List = () => {
 
     const userId = user?._id;
 
-    const [ listData, setListData ] = useState([])
-    const [ deleteData, setDeleteData ] = useState([]); 
+    const [ listData, setListData ] = useState([]);
+    const [ deleteData, setDeleteData ] = useState([]);
+    const [notification, setNotification] = useState(null);
     
     //리스트 정보 갖고 오는 코드
     useEffect(() => {
@@ -49,6 +48,31 @@ const List = () => {
             console.error('API URL is not defined');
          }
     }, [apiUrl]);
+
+    useEffect(() => {
+          const listNotifications = () => {
+            listData.forEach((list) => {
+                const listData = new Date(list.createdata);
+                const notificationTime = new Date(listData.getTime() - 10 * 60 * 1000);
+                const timeDifference = notificationTime.getTime() - Date.now();
+
+                if(timeDifference > 0){
+                    setTimeout(() => {
+                        const notification = (
+                            <Notification
+                               title={`알림`}
+                               message={`리스트 "${list.listitem}"의 완료 시간이 임박했습니다!`}
+                               duration={3000} //알림 표시 시간(밀리초)
+                            />
+                        );
+                        setNotification(notification);
+                    }, timeDifference);
+                }
+            });
+          };
+
+          listNotifications();
+    }, [listData]);
 
     //리스트 항목 지우는 코드
     const listDelete = async(list) => {
